@@ -281,3 +281,7 @@ span.katex-display {
     border-radius: 999px;
   }
 }
+
+#waline .wl-rss {
+  display: none !important;
+}
