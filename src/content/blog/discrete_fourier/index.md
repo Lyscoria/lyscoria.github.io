@@ -5,7 +5,7 @@ description: 'DFT 是有限 Abel 群上的 Fourier 变换，是计算机科学�
 tags:
   - 'DFT'
   - '数学'
-heroImage: { src: './feibi.png', color: '#B4C6DA' }
+heroImage: { src: './feibi1.png', color: '#B4C6DA' }
 language: '中文'
 ---
 
@@ -17,7 +17,7 @@ language: '中文'
 
 **定义**：沿用上面的记号．群同态 $\chi: G \to \mathbb{S}^1$ 称为 **character**，这里 $\mathbb{S}^1 = \{z \in \mathbb{C} | |z| = 1\}$．特别地，给定 $a \in G$，定义 $\chi_a(x) = \omega_{n_1}^{a_1 x_1} \dots \omega_{n_k}^{a_k x_k} = \prod_j {\mathrm{e}}^{\frac{2\pi \mathrm{i}}{n_j}a_j x_j}$，这里 $\omega_d = \mathrm{e}^{\frac{2\pi \mathrm{i}}{d}}$，$a_i$ 和 $x_i$ 是 $a$ 和 $x$ 在 $\mathbb{Z}_{n_1} \times \dots \times \mathbb{Z}_{n_k}$ 中的同构像．
 
-所有的 $\chi_a$ 构成一个群 $\widehat{G} = \{\chi_a | a \in G\}$，群运算为 $\chi_a \cdot \chi_b = \chi_{a+b}$．此时群的单位元是 $\chi_0 = \mathrm{id}$（“0” 指的是全零向量所对应的群元素），逆运算为 $\chi_a^{-1} = \chi_{-a}$．对任意 $a$ 和 $x$，由于 $\chi_a(x)$ 模长为 $1$，故 $\overline{\chi_a(x)} = (\chi_{a}(x))^{-1} = \chi_{-a}(x)$，从定义中还不难看出 $\chi_a(x) = \chi_x(a)$．
+所有的 $\chi_a$ 构成一个群 $\widehat{G} = \{\chi_a | a \in G\}$，群运算为 $\chi_a \cdot \chi_b = \chi_{a+b}$．此时群的单位元是 $\chi_0 = \mathrm{id}$ （“0” 指的是全零向量所对应的群元素），逆运算为 $\chi_a^{-1} = \chi_{-a}$．对任意 $a$ 和 $x$，由于 $\chi_a(x)$ 模长为 $1$，故 $\overline{\chi_a(x)} = (\chi_{a}(x))^{-1} = \chi_{-a}(x)$，从定义中还不难看出 $\chi_a(x) = \chi_x(a)$．
 
 我们关心是否 $\chi_a$ 已经是所有的 character，这需要以下性质：
 
@@ -145,7 +145,7 @@ $$
 $$
 此时 $\chi_a(x) = \prod_j (-1)^{a_j x_j} = (-1)^{\langle a, x \rangle}$．
 
-布尔函数分析（Boolean Function Analysis）中涉及这样的事情：考虑集合 $A \subseteq [n]$，函数 $\alpha \to \{0, 1\}$，对于每个 01 向量 $x$，把 $A$ 所指定的那些位替换成 $\alpha$ 映射的值，然后再输入到 $f$ 中：
+布尔函数分析 (Boolean Function Analysis) 中涉及这样的事情：考虑集合 $A \subseteq [n]$，函数 $\alpha \to \{0, 1\}$，对于每个 01 向量 $x$，把 $A$ 所指定的那些位替换成 $\alpha$ 映射的值，然后再输入到 $f$ 中：
 
 **定义**：设 $A \subseteq [n]$，$\alpha \to \{0, 1\}$，定义
 $$
