@@ -9,7 +9,7 @@ heroImage: { src: './feibi2.png', color: '#B4C6DA' }
 language: '中文'
 ---
 
-离散数学与结构 (2025Fall) 信息论部分的笔记 (第二部分)。
+离散数学与结构 (2025Fall) 的个人笔记，摘出来一些比较好玩的东西。
 
 ## 压缩
 

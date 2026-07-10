@@ -9,7 +9,7 @@ heroImage: { src: './feibi1.png', color: '#B4C6DA' }
 language: '中文'
 ---
 
-离散数学与结构 (2025Fall) DFT 部分的课程笔记。
+离散数学与结构 (2025Fall) 的个人笔记，摘出来一些比较好玩的东西。
 
 ## 离散 Fourier 变换
 

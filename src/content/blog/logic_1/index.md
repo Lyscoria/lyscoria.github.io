@@ -9,7 +9,7 @@ heroImage: { src: './feibi4.png', color: '#B4C6DA' }
 language: '中文'
 ---
 
-离散数学与结构 (2025Fall) 逻辑部分的笔记 (第一部分)。
+离散数学与结构 (2025Fall) 的个人笔记，摘出来一些比较好玩的东西。
 
 ## 基本定义
 
@@ -348,7 +348,7 @@ $$
     # 从而f作用在p->q上返回(not q)->(not p)
 ```
 
-$\bot$ 能推导任何命题，原因是它相当于一个接受 $0$ 个参数的函数．$P \land Q$ 可以表达为 C 语言的 `pair<P, Q>`；$P\vee Q$ 则相当于 `union\{P; Q;\}`．下面是推导 $((p\rightarrow q)\land(q\rightarrow s)\rightarrow(p\vee q \rightarrow s)$ 的例子：
+$\bot$ 能推导任何命题，原因是它相当于一个接受 $0$ 个参数的函数．$P \land Q$ 可以表达为 C 语言的 `pair<P, Q>`；$P\vee Q$ 则相当于 `union\{P; Q;\}`．下面是推导 $((p\rightarrow s)\land(q\rightarrow s)\rightarrow(p\vee q \rightarrow s)$ 的例子：
 ```python
     def f(pair):
         u, v = pair
