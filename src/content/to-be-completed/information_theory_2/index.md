@@ -1,7 +1,7 @@
 ---
-title: '离散数学片羽 | 信息论 II: 压缩与信道编码'
+title: '离散数学 | 信息论 II: 压缩与信道编码'
 publishDate: 2026-06-22 11:01:01
-description: '编码理论的初步内容。'
+description: '离散数学个人笔记摘录'
 tags:
   - '信息论'
   - '数学'
@@ -9,7 +9,7 @@ heroImage: { src: './feibi2.png', color: '#B4C6DA' }
 language: '中文'
 ---
 
-离散数学与结构 (2025Fall) 的个人笔记，摘出来一些比较好玩的东西。
+离散数学与结构 (2025Fall) 的个人笔记，摘出来一些写的比较完整的、比较好玩的东西。
 
 ## 压缩
 
@@ -247,7 +247,7 @@ $$
 根据 Chernoff bound，$i(X_w,Y) < L(C - \epsilon)$ 的概率指数小．
 因此我们只需说明 $\exists w' \neq w, i(X_{w'},Y) \ge L(C - \epsilon)$ 的概率足够小．
 
-更一般地，考虑 $(X,Y,X') \sim P_{XY}P_X$，令信息密度 $i(x; y) = \log \frac{P_{XY}(x,y)}{P_X(x)P_Y(y)}$ (这里的记号不太好，$P_X$ 对应上一页的 $(P_X)^L$，$P_{XY}$ 对应上一页的 $(P_{XY})^L$) ，那么
+更一般地，考虑 $(X,Y,X') \sim P_{XY}P_X$，令信息密度 $i(x; y) = \log \frac{P_{XY}(x,y)}{P_X(x)P_Y(y)}$ (这里的记号有些混乱，$P_X$ 对应上一页的 $(P_X)^L$，$P_{XY}$ 对应上一页的 $(P_{XY})^L$) ，那么
 
 - $\mathbb{E}[i(X;Y)] = \mathrm{I}(X;Y)$
 - 对任意实值函数 $f$：
@@ -265,7 +265,7 @@ $$
 \end{align*}
 $$
 
-回到前一页的问题，对任意 $w' \neq w$：
+回到先前的问题，对任意 $w' \neq w$：
 $$
 \Pr[i(X_{w'}, Y) \ge L(C - \epsilon)] \le \exp(-L(C - \epsilon))
 $$

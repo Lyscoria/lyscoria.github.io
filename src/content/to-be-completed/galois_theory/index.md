@@ -1,7 +1,7 @@
 ---
-title: '离散数学片羽 | Galois 理论'
+title: '离散数学 | Galois 理论'
 publishDate: 2026-06-21 14:20:03
-description: '古典代数学的一大顶峰。'
+description: '离散数学个人笔记摘录'
 tags:
   - '抽象代数'
   - '数学'
@@ -9,7 +9,7 @@ heroImage: { src: './feibi3.png', color: '#B4C6DA' }
 language: '中文'
 ---
 
-离散数学与结构 (2025Fall) 的个人笔记，摘出来一些比较好玩的东西。
+离散数学与结构 (2025Fall) 的个人笔记，摘出来一些写的比较完整的、比较好玩的东西。
 
 ## 正规扩张与可分扩张
 

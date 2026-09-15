@@ -1,7 +1,7 @@
 ---
-title: '离散数学片羽 | 离散 Fourier 变换'
+title: '离散数学 | 离散 Fourier 变换'
 publishDate: 2026-06-22 15:44:23
-description: 'DFT 是有限 Abel 群上的 Fourier 变换，是计算机科学中常用的数学工具。'
+description: '离散数学个人笔记摘录'
 tags:
   - 'DFT'
   - '数学'
@@ -9,7 +9,7 @@ heroImage: { src: './feibi1.png', color: '#B4C6DA' }
 language: '中文'
 ---
 
-离散数学与结构 (2025Fall) 的个人笔记，摘出来一些比较好玩的东西。
+离散数学与结构 (2025Fall) 的个人笔记，摘出来一些写的比较完整的、比较好玩的东西。
 
 ## 离散 Fourier 变换
 
