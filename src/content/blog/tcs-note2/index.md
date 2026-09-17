@@ -98,13 +98,13 @@ $$
 
 相比于 DFA / NFA，**下推自动机** PDA 额外包含了一个不限长度的栈。可以认为，PDA 在工作时扫描一个单向只读的纸带，根据读取到的字母和自身栈顶的字母来决定状态转移，同时决定对栈的操作。
 
-严格来说，PDA 是一个六元组 $P = (Q, \Sigma, \Gamma, \delta, q_0, F)$，多出来的 $\Gamma$ 为栈字母表，默认以 $\$ \in \Gamma$ 表示栈底符号，且 PDA 工作的第一步总是将 $\$$ 压栈。这里 $\delta: Q \times \Sigma_\varepsilon \times \Gamma_\varepsilon \to P(Q \times \Gamma_\varepsilon)$，每次转移要看当前纸带的字母和栈顶字母（也可以不看），并操作栈（压栈、弹栈、替换，或保持不动）。由于歧义性的存在（特别是固有歧义性：比如在上下文无关语言 $\{0^n1^n2^m \mid m, n \in \mathbb{N}\} \cup \{0^n1^m2^m \mid m,n\in\mathbb{N}\}$ 中，形如 $0^n1^n2^n$ 的串同时属于两边，可以严格证明必然有两种派生，这里不展开），这里的 PDA 是非确定性的。（也有确定性的版本，包括确定性上下文无关语言、确定性上下文无关文法，这里也不展开。）
+严格来说，PDA 是一个六元组 $P = (Q, \Sigma, \Gamma, \delta, q_0, F)$，多出来的 $\Gamma$ 为栈字母表，默认以 $\text{\textdollar} \in \Gamma$ 表示栈底符号，且 PDA 工作的第一步总是将 $\text{\textdollar}$ 压栈。这里 $\delta: Q \times \Sigma_\varepsilon \times \Gamma_\varepsilon \to P(Q \times \Gamma_\varepsilon)$，每次转移要看当前纸带的字母和栈顶字母（也可以不看），并操作栈（压栈、弹栈、替换，或保持不动）。由于歧义性的存在（特别是固有歧义性：比如在上下文无关语言 $\{0^n1^n2^m \mid m, n \in \mathbb{N}\} \cup \{0^n1^m2^m \mid m,n\in\mathbb{N}\}$ 中，形如 $0^n1^n2^n$ 的串同时属于两边，可以严格证明必然有两种派生，这里不展开），这里的 PDA 是非确定性的。（也有确定性的版本，包括确定性上下文无关语言、确定性上下文无关文法，这里也不展开。）
 
 下面看一个例子，是识别 $\{0^n1^n \mid n \in \mathbb{N}\}$ 的 PDA：
 
 ![example2](pda.jpg)
 
-注意这里 $\varepsilon \to a$ 表示将 $a$ 压栈，$a \to \varepsilon$ 表示将 $a$ 弹栈。首先，PDA 不读输入，先压入栈底符号 $\$$，到达 $q_1$。然后，只要读到 $0$，就将其压栈。通过 $\varepsilon$ 转移到达 $q_2$ 之后，只要读到 $1$ 就弹出一个 $0$。最后读完输入，弹出栈底符号，到达接受状态 $q_3$。
+注意这里 $\varepsilon \to a$ 表示将 $a$ 压栈，$a \to \varepsilon$ 表示将 $a$ 弹栈。首先，PDA 不读输入，先压入栈底符号 $\text{\textdollar}$，到达 $q_1$。然后，只要读到 $0$，就将其压栈。通过 $\varepsilon$ 转移到达 $q_2$ 之后，只要读到 $1$ 就弹出一个 $0$。最后读完输入，弹出栈底符号，到达接受状态 $q_3$。
 
 PDA 也可以用表格的方式呈现，如下图（但下图表示的 PDA 无法接受空串）：
 
@@ -116,10 +116,10 @@ PDA 也可以用表格的方式呈现，如下图（但下图表示的 PDA 无�
 
 算法：
 
-1. 从 $q_{start}$，不读输入，把 $\$$ 和 $S$ 压栈，到达 $q_{loop}$。
+1. 从 $q_{start}$，不读输入，把 $\text{\textdollar}$ 和 $S$ 压栈，到达 $q_{loop}$。
 2. 在 $q_{loop}$，如果栈顶是终结符 $a$，读输入 $a$，并把 $a$ 弹出，回到 $q_{loop}$。
 3. 在 $q_{loop}$，如果栈顶是非终结符 $A$，不读输入，把栈顶 $A$ 按照规则 $A \to w$ 换成 $w$，回到 $q_{loop}$。
-4. 在 $q_{loop}$，栈顶为 $\$$，不读输入，弹出 $\$$，转移到 $q_{accept}$，后者为唯一的接受状态。
+4. 在 $q_{loop}$，栈顶为 $\text{\textdollar}$，不读输入，弹出 $\text{\textdollar}$，转移到 $q_{accept}$，后者为唯一的接受状态。
 
 如果 $A \to w$ 的 $w$ 不止一个字符，可以引入若干中间状态逐步完成。
 
