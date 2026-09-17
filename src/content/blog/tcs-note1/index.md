@@ -22,7 +22,7 @@ language: '中文'
 2. 必要条件，即泵引理；
 3. 充分必要条件，即 Myhill-Nerode 引理，该引理还可以刻画最小 DFA 的概念。
 
-为什么有充要条件依然要介绍较弱的泵引理呢？主要是因为之后要学习的上下文无关语言给不出 Myhill-Nerode 引理这样的充要条件，所以提前熟悉一下（？）
+为什么有充要条件依然要介绍较弱的泵引理呢？主要是因为之后要学习的上下文无关语言给不出 Myhill-Nerode 引理这样好用的充要判据，所以提前熟悉一下（？）
 
 下文从 DFA 开始逐个介绍。
 
@@ -32,11 +32,13 @@ language: '中文'
 
 ![alt text](image.png)
 
-包括若干状态（以圆圈表示），状态中含有一个初始状态（图中的 $s_0$，标记有一条初始边）和若干接受状态（比如 $s_2$ 等，标记为双层圆圈）。每条边上写着一个字符，表示从该状态读取一个字符后转移到下一个状态。
+包括若干状态（以圆圈表示），状态中含有一个初始状态（图中的 $s_0$，标记有一条初始边）和若干接受状态（比如 $s_2$ 等，标记为双层圆圈）。每条边上写着一个字符，表示从该状态读取一个字符后转移到下一个状态。（注：该图的 DFA 有部分转移边未画全。）
 
-严格来说，DFA 是一个五元组 $M = (Q, \Sigma, \delta, q_0, F)$，其中 $Q$ 是状态集，$\Sigma$ 是字母表，$\delta: Q \times \Sigma \to Q$ 是转移函数，$q_0 \in Q$ 为初始状态，$F \subseteq Q$ 为接受状态集合。
+严格来说，DFA 是一个五元组 $M = (Q, \Sigma, \delta, q_0, F)$，其中 $Q$ 是有限状态集，$\Sigma$ 是字母表，$\delta: Q \times \Sigma \to Q$ 是转移函数，$q_0 \in Q$ 为初始状态，$F \subseteq Q$ 为接受状态集合。
 
-给定串 $w = w_1\dots w_n$，得到状态转移序列：$r_0, r_1, \dots, r_n$，其中 $r_0 = q_0, r_{i+1} = \delta(r_i, w_i)$。如果 $r_n \in F$，就称该 DFA 接受 $w$。这就是 DFA 所描述的计算过程。可以被自动机 M 接受的所有字符串记作 $L(M)$。如果一个语言可以被一个 DFA 接受，我们就说这个语言是**正则语言**。 
+给定串 $w = w_1\dots w_n$，得到状态转移序列：$r_0, r_1, \dots, r_n$，其中 $r_0 = q_0, r_{i} = \delta(r_{i-1}, w_i)$。如果 $r_n \in F$，就称该 DFA 接受 $w$。这就是 DFA 所描述的计算过程。可以被自动机 M 接受的所有字符串记作 $L(M)$。如果一个语言可以被一个 DFA 接受，我们就说这个语言是**正则语言**。 
+
+状态转移函数 $\delta$ 可以引申为扩展转移函数 $\hat\delta: Q \times \Sigma^* \to Q$，允许接受字符串进行多步转移。
 
 给定一个语言 $L \subseteq \Sigma^*$，定义两个串 $x, y$ 不可区分 $x \sim_L y$ 当且仅当 $\forall z \in \Sigma, xz \in L \leftrightarrow yz \in L$。容易验证不可区分关系是 $\Sigma^*$ 上的等价关系，因此它将 $\Sigma^*$ 划分成若干等价类。直觉上，每个等价类就类似于 DFA 的一个状态，事实上也确实如此：
 
@@ -49,11 +51,11 @@ language: '中文'
 特别地，上面的证明同时说明，
 - 如果 $L$ 能被 DFA 识别，那么 DFA 的状态数 $\ge |\Sigma^*/\sim_L|$；
 - 如果 $L$ 是正则语言，那么它可以被一个有 $|\Sigma^*/\sim_L|$ 个状态的 DFA 识别。
-因此这也给出了**最小 DFA** 的概念。先定义串可区分：$\exists z \in, xz \in L \leftrightarrow yz \notin L$。可以拓展为状态可区分：$\exists a, \delta(p, a) \in F \leftrightarrow \delta(q, a) \notin F$。由此可以给出从某个 DFA 构造最小 DFA 的算法：先将 $Q$ 分成 $F$ 和 $Q \backslash F$ 两类，然后两两检查状态是否可区分，最后把不可区分的状态合并到一起即可。该算法的复杂度为 $O(|Q|^3)$。
+因此这也给出了**最小 DFA** 的概念。先定义串可区分：$\exists z \in \Sigma^*, xz \in L \leftrightarrow yz \notin L$。可以拓展为状态可区分：$\exists a, \hat\delta(p, a) \in F \leftrightarrow \hat\delta(q, a) \notin F$。由此可以给出从某个 DFA 构造最小 DFA 的算法：先将 $Q$ 分成 $F$ 和 $Q \backslash F$ 两类，然后两两检查状态是否可区分，最后把不可区分的状态合并到一起即可。该算法的复杂度大约为 $O(|Q|^3)$。
 
 ## NFA
 
-**NFA** 允许转移的“不确定性”，允许一个状态通过一个字母转移到多个状态，也允许 $\varepsilon$ 空转移。具体来说，NFA 也是五元组 $N = (Q, \Sigma, \delta, q_0, F)$，这里 $\Sigma_\varepsilon = \Sigma \cup \varepsilon$，$\delta: Q \times \Sigma_\varepsilon \to P(Q)$，$q_0 \in F$，$F \subseteq Q$。NFA 的计算是树形的，因为每次转移有多种可能的结果。与 DFA 不同，在读完输入串 $w$ 后只要有一种计算路径可以到达接受状态就称之为接受。
+**NFA** 允许转移的“不确定性”，允许一个状态通过一个字母转移到多个状态，也允许 $\varepsilon$ 空转移。具体来说，NFA 也是五元组 $N = (Q, \Sigma, \delta, q_0, F)$，这里 $\Sigma_\varepsilon = \Sigma \cup \{\varepsilon\}$，$\delta: Q \times \Sigma_\varepsilon \to P(Q)$，$q_0 \in Q$，$F \subseteq Q$。NFA 的计算是树形的，因为每次转移有多种可能的结果。与 DFA 不同，在读完输入串 $w$ 后只要有一种计算路径可以到达接受状态就称之为接受。
 
 DFA 是特殊的 NFA，所以 NFA 的表达能力至少不弱于 DFA。事实上可以证明，
 
@@ -61,7 +63,7 @@ DFA 是特殊的 NFA，所以 NFA 的表达能力至少不弱于 DFA。事实上
 
 **证明** 接上文，只需要证明能被 NFA 识别的语言也能被 DFA 识别即可。假设语言 $L \subseteq \Sigma^*$ 被 NFA $N = (Q_1, \Sigma, \delta, q_0, F)$ 识别，我们使用如下算法（称为幂集构造法）来构造 DFA $D = (Q_2, \Sigma, \delta', q_0', F')$：
 1. 初始状态：$q_0' = E(\{q_0\})$，这里 $E(P) = \{Q \mid 从 p \in P 能通过0次或多次 \varepsilon 转移到达 Q\}$ 称为 $\varepsilon$ 闭包。
-2. 给定构造好的状态集 $Q$ 和字母 $a$，计算 $Q$ 中所有状态通过 $a$ 可能转移到的状态，然后再取 $\varepsilon$ 闭包。即 $\delta'(Q, a) = E(\{p \mid \exists r \in Q, p = \delta(r, a)\})$。
+2. 给定构造好的状态集 $Q$ 和字母 $a$，计算 $Q$ 中所有状态通过 $a$ 可能转移到的状态，然后再取 $\varepsilon$ 闭包。即 $\delta'(Q, a) = E(\{p \mid \exists r \in Q, p \in \delta(r, a)\}) = E\left(\bigcup_{r\in Q}\delta(r, a)\right)$。
 3. 接受状态：只要里面含有原接受状态即可，即 $F' = \{Q \mid Q \cap F \neq \varnothing\}$。
 
 有了 NFA 之后，我们可以很方便地证明正则语言的性质。
@@ -97,10 +99,12 @@ DFA 是特殊的 NFA，所以 NFA 的表达能力至少不弱于 DFA。事实上
 
 最后，我们给出判定语言非正则的另一个引理：
 
-**定理（泵引理）** 如果 $L$ 是正则语言，那么存在泵长度 $p$，使得 $\forall s \in L$, $|s| \ge p$, $\exists x,y,z,s = xyz$，且 $|xy| \le p$, $|y| > 0$, $xy^iz \in L$, $i \in \mathbb{N}$。
+**定理（泵引理）** 如果 $L$ 是正则语言，那么存在泵长度 $p$，$\forall s \in L$, 在 $|s| \ge p$ 时, $\exists x,y,z,s = xyz$，且 $|xy| \le p$, $|y| > 0$, $xy^iz \in L$, $i \in \mathbb{N}$。
 
-证明思路比较直接：假设 DFA 识别 $L$，将泵长度取为状态数 $|Q|$，如果 $s$ 的长度比 DFA 的状态数还要大，那么它在 DFA 中经过的路径必然有环。
+证明思路比较直接：假设 DFA 识别 $L$，将泵长度取为状态数 $|Q|$，如果 $s$ 的长度比 DFA 的状态数还要大，那么它在 DFA 中经过的路径必然有环：
+
+![lemma](beng.jpg)
 
 例子：$\{0^n1^n \mid n \in \mathbb{N}\}$ 不正则。
 
-注意泵引理仅能用于判断语言不是正则语言，因为它只是必要条件。此外，泵引理能导出等差数列，如果一个语言的串长度间隔直觉上是越来越大的（比如说 $\{0^{2^k} \mid k \ge 0\}$，甚至是 $\{0^p \mid p 是素数\}$），那它也不正则。
+注意泵引理仅能用于判断语言不是正则语言，因为它只是必要条件。此外，泵引理能导出某种等差数列，如果一个语言的串长度间隔直觉上是越来越大的（比如说 $\{0^{2^k} \mid k \ge 0\}$，甚至是 $\{0^p \mid p 是素数\}$），那它也不正则。
