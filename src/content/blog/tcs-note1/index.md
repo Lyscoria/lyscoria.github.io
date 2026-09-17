@@ -51,7 +51,10 @@ language: '中文'
 特别地，上面的证明同时说明，
 - 如果 $L$ 能被 DFA 识别，那么 DFA 的状态数 $\ge |\Sigma^*/\sim_L|$；
 - 如果 $L$ 是正则语言，那么它可以被一个有 $|\Sigma^*/\sim_L|$ 个状态的 DFA 识别。
-因此这也给出了**最小 DFA** 的概念。先定义串可区分：$\exists z \in \Sigma^*, xz \in L \leftrightarrow yz \notin L$。可以拓展为状态可区分：$\exists a, \hat\delta(p, a) \in F \leftrightarrow \hat\delta(q, a) \notin F$。由此可以给出从某个 DFA 构造最小 DFA 的算法：先将 $Q$ 分成 $F$ 和 $Q \backslash F$ 两类，然后两两检查状态是否可区分，最后把不可区分的状态合并到一起即可。该算法的复杂度大约为 $O(|Q|^3)$。
+因此这也给出了**最小 DFA** 的概念。先定义串可区分：$\exists z \in \Sigma^*, xz \in L \leftrightarrow yz \notin L$。可以拓展为状态可区分：$\exists a, \hat\delta(p, a) \in F \leftrightarrow \hat\delta(q, a) \notin F$。由此可以给出从某个 DFA 构造最小 DFA 的算法：
+1. 删除从 $q_0$ 不可达的状态。
+2. 将 $Q$ 分成 $F$ 和 $Q \backslash F$ 两类。
+3. 对每个分好的状态集，两两检查其中的状态 $p$，$q$，如果 $\exists a \in \Sigma$，$\delta(p, a)$ 和 $\delta(q, a)$ 落入了不同的状态集，就将该状态集切分。重复此过程直至不再产生新的切分为止。
 
 ## NFA
 
