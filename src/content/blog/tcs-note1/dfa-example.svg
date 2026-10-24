@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1722" height="590" viewBox="0 0 1722 590" role="img" aria-labelledby="title description">
+  <title id="title">DFA 状态转移图</title>
+  <desc id="description">初始状态为 S0，接受状态为 S2、S4、S9。转移为 S0 经 i 到 S1，S1 经 f 到 S2，S1 经 n 到 S3，S3 经 t 到 S4；S0 经 w 到 S5，S5 经 h 到 S6，S6 经 i 到 S7，S7 经 l 到 S8，S8 经 e 到 S9。其余转移未画出。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="20" markerHeight="20" refX="18" refY="10" viewBox="0 0 20 20" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 0 1 L 18 10 L 0 19 Z" fill="#8295ab"/>
+    </marker>
+    <style>
+      .edge { fill: none; stroke: #8295ab; stroke-width: 3; stroke-linecap: round; marker-end: url(#arrow); }
+      .state { fill: #eaf2fc; stroke: #628bb9; stroke-width: 2.5; }
+      [data-accepting] .state { fill: #e1f1e8; stroke: #69a58b; }
+      .accepting { fill: none; stroke: #69a58b; stroke-width: 2.5; }
+      .state-label { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 38px; font-style: italic; fill: #2b5d8d; text-anchor: middle; }
+      [data-accepting] .state-label { fill: #25664e; }
+      .sub { font-size: 25px; font-style: normal; }
+      .transition { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 42px; font-style: italic; fill: #45586e; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1722" height="590" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="1674" height="542" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+
+  <g class="edge">
+    <path id="initial" d="M 107 290 H 175"/>
+    <path data-from="s0" data-to="s1" data-symbol="i" d="M 280 271 L 414 222"/>
+    <path data-from="s1" data-to="s2" data-symbol="f" d="M 516 186 L 663 134"/>
+    <path data-from="s1" data-to="s3" data-symbol="n" d="M 516 223 L 669 281"/>
+    <path data-from="s3" data-to="s4" data-symbol="t" d="M 774 300 H 920"/>
+    <path data-from="s0" data-to="s5" data-symbol="w" d="M 272 323 L 422 436"/>
+    <path data-from="s5" data-to="s6" data-symbol="h" d="M 519 468 H 666"/>
+    <path data-from="s6" data-to="s7" data-symbol="i" d="M 774 468 H 926"/>
+    <path data-from="s7" data-to="s8" data-symbol="l" d="M 1034 468 H 1211"/>
+    <path data-from="s8" data-to="s9" data-symbol="e" d="M 1319 468 H 1476"/>
+  </g>
+
+  <g class="transition">
+    <text x="330" y="235">i</text>
+    <text x="575" y="158">f</text>
+    <text x="575" y="284">n</text>
+    <text x="847" y="286">t</text>
+    <text x="350" y="362">w</text>
+    <text x="591" y="452">h</text>
+    <text x="846" y="452">i</text>
+    <text x="1121" y="452">l</text>
+    <text x="1397" y="452">e</text>
+  </g>
+
+  <g id="s0" data-initial="true">
+    <circle class="state" cx="229" cy="290" r="54"/>
+    <text class="state-label" x="229" y="307">S<tspan class="sub" dy="6">0</tspan></text>
+  </g>
+  <g id="s1">
+    <circle class="state" cx="465" cy="204" r="54"/>
+    <text class="state-label" x="465" y="221">S<tspan class="sub" dy="6">1</tspan></text>
+  </g>
+  <g id="s2" data-accepting="true">
+    <circle class="state" cx="720" cy="114" r="54"/>
+    <circle class="accepting" cx="720" cy="114" r="60"/>
+    <text class="state-label" x="720" y="131">S<tspan class="sub" dy="6">2</tspan></text>
+  </g>
+  <g id="s3">
+    <circle class="state" cx="720" cy="300" r="54"/>
+    <text class="state-label" x="720" y="317">S<tspan class="sub" dy="6">3</tspan></text>
+  </g>
+  <g id="s4" data-accepting="true">
+    <circle class="state" cx="980" cy="300" r="54"/>
+    <circle class="accepting" cx="980" cy="300" r="60"/>
+    <text class="state-label" x="980" y="317">S<tspan class="sub" dy="6">4</tspan></text>
+  </g>
+  <g id="s5">
+    <circle class="state" cx="465" cy="468" r="54"/>
+    <text class="state-label" x="465" y="485">S<tspan class="sub" dy="6">5</tspan></text>
+  </g>
+  <g id="s6">
+    <circle class="state" cx="720" cy="468" r="54"/>
+    <text class="state-label" x="720" y="485">S<tspan class="sub" dy="6">6</tspan></text>
+  </g>
+  <g id="s7">
+    <circle class="state" cx="980" cy="468" r="54"/>
+    <text class="state-label" x="980" y="485">S<tspan class="sub" dy="6">7</tspan></text>
+  </g>
+  <g id="s8">
+    <circle class="state" cx="1265" cy="468" r="54"/>
+    <text class="state-label" x="1265" y="485">S<tspan class="sub" dy="6">8</tspan></text>
+  </g>
+  <g id="s9" data-accepting="true">
+    <circle class="state" cx="1536" cy="468" r="54"/>
+    <circle class="accepting" cx="1536" cy="468" r="60"/>
+    <text class="state-label" x="1536" y="485">S<tspan class="sub" dy="6">9</tspan></text>
+  </g>
+</svg>

@@ -30,7 +30,11 @@ language: '中文'
 
 **DFA** 是对状态转移图的一种形式化描述。所谓的状态转移图，比如：
 
-![alt text](image.png)
+<div style="width: 100%; max-width: 720px; margin-inline: auto;">
+
+![DFA 状态转移图](./dfa-example.svg)
+
+</div>
 
 包括若干状态（以圆圈表示），状态中含有一个初始状态（图中的 $s_0$，标记有一条初始边）和若干接受状态（比如 $s_2$ 等，标记为双层圆圈）。每条边上写着一个字符，表示从该状态读取一个字符后转移到下一个状态。（注：该图的 DFA 有部分转移边未画全。）
 
@@ -83,7 +87,7 @@ DFA 是特殊的 NFA，所以 NFA 的表达能力至少不弱于 DFA。事实上
 
 ## 正则表达式
 
-正则表达式是归纳地定义的：
+**正则表达式**是归纳地定义的：
 
 1. $a$，$\varepsilon$，$\varnothing$ 是正则表达式，且 $L(a) = \{a\}$，$L(\varepsilon) = \{\varepsilon\}$，$L(\varnothing) = \varnothing$。
 2. 如果 $R_1, R_2$ 是正则表达式，那 $R_1R_2$ 也是，$L(R_1R_2) = L(R_1) L(R_2)$。
@@ -106,7 +110,11 @@ DFA 是特殊的 NFA，所以 NFA 的表达能力至少不弱于 DFA。事实上
 
 证明思路比较直接：假设 DFA 识别 $L$，将泵长度取为状态数 $|Q|$，如果 $s$ 的长度比 DFA 的状态数还要大，那么它在 DFA 中经过的路径必然有环：
 
-![lemma](beng.jpg)
+<div style="width: 100%; max-width: 640px; margin-inline: auto;">
+
+![正则语言泵引理的路径分解](./pumping-lemma.svg)
+
+</div>
 
 例子：$\{0^n1^n \mid n \in \mathbb{N}\}$ 不正则。
 

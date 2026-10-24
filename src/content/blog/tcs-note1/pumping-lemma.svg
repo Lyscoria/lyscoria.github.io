@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1408" height="680" viewBox="0 0 1408 680" role="img" aria-labelledby="title description">
+  <title id="title">正则语言泵引理的路径分解</title>
+  <desc id="description">水平状态路径分为 x、z 两段，中间状态上方有标记为 y 的循环。路径从左向右运行，循环从中间状态向右上方运行，再经省略部分从左上方回到中间状态。图中有八个单圈状态，路径和循环的省略部分均用三个点表示。x、z 用蓝色下括号标记，y 用暖色上括号标记。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="16" refY="9" viewBox="0 0 18 18" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 16 9 L 1 17 Z" fill="#8295ab"/>
+    </marker>
+    <marker id="loop-arrow" markerWidth="18" markerHeight="18" refX="16" refY="9" viewBox="0 0 18 18" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 16 9 L 1 17 Z" fill="#c38b62"/>
+    </marker>
+    <style>
+      .edge { fill: none; stroke: #8295ab; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+      .loop-edge { stroke: #c38b62; marker-end: url(#loop-arrow); }
+      .state { fill: #eaf2fc; stroke: #628bb9; stroke-width: 2.5; }
+      .loop-state { fill: #fff1e6; stroke: #c38b62; }
+      .shared-state { fill: #e1f1e8; stroke: #69a58b; }
+      .brace { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .label { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 58px; font-style: italic; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1408" height="680" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="1360" height="632" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+
+  <g class="edge">
+    <path id="x-first-edge" d="M 119 420 H 246"/>
+    <path id="x-last-edge" d="M 499 420 H 666"/>
+    <path id="z-first-edge" d="M 714 420 H 951"/>
+    <path id="z-last-edge" d="M 1140 420 H 1296"/>
+    <path id="y-outgoing" class="loop-edge" d="M 713.898 417.785 A 130 130 0 0 0 817.785 313.898"/>
+    <path id="y-incoming" class="loop-edge" d="M 562.215 313.898 A 130 130 0 0 0 666.102 417.785"/>
+    <path id="y-upper-edge" class="loop-edge" d="M 635.06 172.18 A 130 130 0 0 0 562.215 266.102"/>
+  </g>
+
+  <g fill="#8295ab">
+    <g id="x-ellipsis">
+      <circle cx="340" cy="420" r="3.5"/>
+      <circle cx="365" cy="420" r="3.5"/>
+      <circle cx="390" cy="420" r="3.5"/>
+    </g>
+    <g id="z-ellipsis">
+      <circle cx="1048" cy="420" r="3.5"/>
+      <circle cx="1075" cy="420" r="3.5"/>
+      <circle cx="1102" cy="420" r="3.5"/>
+    </g>
+    <g id="y-ellipsis" fill="#c38b62">
+      <circle cx="690" cy="160" r="3.5"/>
+      <circle cx="744.94" cy="172.18" r="3.5"/>
+      <circle cx="789.586" cy="206.438" r="3.5"/>
+    </g>
+  </g>
+
+  <g class="state">
+    <circle id="x-first-state" cx="95" cy="420" r="24"/>
+    <circle id="x-second-state" cx="270" cy="420" r="24"/>
+    <circle id="x-last-state" cx="475" cy="420" r="24"/>
+    <circle id="loop-state" class="shared-state" cx="690" cy="420" r="24"/>
+    <circle id="z-first-state" cx="975" cy="420" r="24"/>
+    <circle id="z-last-state" cx="1320" cy="420" r="24"/>
+    <circle id="y-left-state" class="loop-state" cx="560" cy="290" r="24"/>
+    <circle id="y-right-state" class="loop-state" cx="820" cy="290" r="24"/>
+  </g>
+
+  <g stroke="#628bb9" fill="#2b5d8d">
+    <path id="x-brace" class="brace" d="M 95 510 Q 95 534 119 534 H 335 Q 359 534 370 552 Q 381 534 405 534 H 621 Q 645 534 645 510"/>
+    <path id="z-brace" class="brace" d="M 755 510 Q 755 534 779 534 H 1003 Q 1027 534 1038 552 Q 1049 534 1073 534 H 1296 Q 1320 534 1320 510"/>
+    <text class="label" x="370" y="615" stroke="none">x</text>
+    <text class="label" x="1038" y="615" stroke="none">z</text>
+  </g>
+  <g stroke="#c38b62" fill="#93542b">
+    <path id="y-brace" class="brace" d="M 540 137 Q 540 117 564 117 H 655 Q 679 117 690 99 Q 701 117 725 117 H 816 Q 840 117 840 137"/>
+    <text class="label" x="690" y="82" stroke="none">y</text>
+  </g>
+</svg>
