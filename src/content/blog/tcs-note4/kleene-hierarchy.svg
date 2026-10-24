@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1500" viewBox="0 0 960 1500" role="img" aria-labelledby="title description">
+  <title id="title">Kleene 谱系</title>
+  <desc id="description">三层 Kleene 谱系。左侧斜线端点外标注 Σ₁、Σ₂、Σ₃，右侧标注 Π₁、Π₂、Π₃；中央交集标注 Δ₁、Δ₂、Δ₃。每个半透明色块覆盖其斜线下方的整个区域，向下逐层加深；蓝色与黄色叠加形成绿色交集。A_TM 位于 Σ₁；E_TM、All_PDA、E_LBA、All_LBA 位于 Π₁；A_PDA、E_PDA、A_LBA 位于 Δ₁；All_TM 位于 Π₂。</desc>
+  <defs>
+    <style>
+      .math { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; }
+      .class { font-size: 45px; }
+      .problem { font-size: 34px; font-style: italic; }
+      .sub { font-size: 23px; font-style: normal; }
+      .sigma { fill: #2b5d8d; }
+      .pi { fill: #8b631d; }
+      .delta { fill: #285c41; }
+      .boundary { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .set { fill-opacity: 0.22; mix-blend-mode: multiply; }
+    </style>
+  </defs>
+
+  <rect width="960" height="1500" rx="24" fill="#ffffff"/>
+  <rect x="20" y="24" width="920" height="1452" rx="20" fill="#ffffff" stroke="#d9e1ea" stroke-width="2"/>
+
+  <g style="isolation: isolate;">
+    <rect x="140" y="170" width="680" height="1260" fill="#ffffff"/>
+    <g fill="#4a90d9">
+      <path id="sigma-3-region" class="set" d="M 140 170 L 820 590 V 1430 H 140 Z"/>
+      <path id="sigma-2-region" class="set" d="M 140 590 L 820 1010 V 1430 H 140 Z"/>
+      <path id="sigma-1-region" class="set" d="M 140 1010 L 820 1430 H 140 Z"/>
+    </g>
+    <g fill="#eccb48">
+      <path id="pi-3-region" class="set" d="M 140 590 L 820 170 V 1430 H 140 Z"/>
+      <path id="pi-2-region" class="set" d="M 140 1010 L 820 590 V 1430 H 140 Z"/>
+      <path id="pi-1-region" class="set" d="M 140 1430 L 820 1010 V 1430 Z"/>
+    </g>
+  </g>
+
+  <g class="boundary" stroke="#628bb9">
+    <path d="M 140 1010 L 820 1430"/>
+    <path d="M 140 590 L 820 1010"/>
+    <path d="M 140 170 L 820 590"/>
+    <path d="M 116 1010 H 140 M 116 590 H 140 M 116 170 H 140"/>
+  </g>
+  <g class="boundary" stroke="#bc9443">
+    <path d="M 140 1430 L 820 1010"/>
+    <path d="M 140 1010 L 820 590"/>
+    <path d="M 140 590 L 820 170"/>
+    <path d="M 820 1010 H 844 M 820 590 H 844 M 820 170 H 844"/>
+  </g>
+  <path class="boundary" d="M 140 170 V 1430 H 820 V 170" stroke="#9aa9bb"/>
+  <path class="boundary" d="M 140 170 V 92 M 820 170 V 92" stroke="#9aa9bb" stroke-dasharray="4 8"/>
+  <text class="math delta" x="480" y="160" text-anchor="middle" font-size="48">⋮</text>
+
+  <g class="math class sigma" text-anchor="end">
+    <text x="102" y="1024">Σ<tspan class="sub" dy="9">1</tspan></text>
+    <text x="102" y="604">Σ<tspan class="sub" dy="9">2</tspan></text>
+    <text x="102" y="184">Σ<tspan class="sub" dy="9">3</tspan></text>
+  </g>
+  <g class="math class pi">
+    <text x="858" y="1024">Π<tspan class="sub" dy="9">1</tspan></text>
+    <text x="858" y="604">Π<tspan class="sub" dy="9">2</tspan></text>
+    <text x="858" y="184">Π<tspan class="sub" dy="9">3</tspan></text>
+  </g>
+  <g class="math class delta" text-anchor="middle">
+    <text x="480" y="1330">Δ<tspan class="sub" dy="9">1</tspan></text>
+    <text x="480" y="1027">Δ<tspan class="sub" dy="9">2</tspan></text>
+    <text x="480" y="607">Δ<tspan class="sub" dy="9">3</tspan></text>
+  </g>
+
+  <g id="sigma-1-problems" class="math problem sigma" data-class="sigma-1" text-anchor="middle">
+    <text x="255" y="1250">A<tspan class="sub" dy="9">TM</tspan></text>
+  </g>
+  <g id="pi-1-problems" class="math problem pi" data-class="pi-1" text-anchor="middle">
+    <text x="735" y="1160">E<tspan class="sub" dy="9">TM</tspan></text>
+    <text x="735" y="1207">All<tspan class="sub" dy="9">PDA</tspan></text>
+    <text x="735" y="1254">E<tspan class="sub" dy="9">LBA</tspan></text>
+    <text x="735" y="1301">All<tspan class="sub" dy="9">LBA</tspan></text>
+  </g>
+  <g id="pi-2-problems" class="math problem pi" data-class="pi-2" text-anchor="middle">
+    <text x="720" y="835">All<tspan class="sub" dy="9">TM</tspan></text>
+  </g>
+  <g id="delta-1-problems" class="math problem delta" data-class="delta-1" text-anchor="middle">
+    <text x="330" y="1390">A<tspan class="sub" dy="9">PDA</tspan></text>
+    <text x="480" y="1390">E<tspan class="sub" dy="9">PDA</tspan></text>
+    <text x="630" y="1390">A<tspan class="sub" dy="9">LBA</tspan></text>
+  </g>
+</svg>

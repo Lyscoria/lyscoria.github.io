@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 140 1280 820" role="img" aria-labelledby="title description">
+  <title id="title">图灵可识别、可判定、补图灵可识别</title>
+  <desc id="description">左圆表示图灵可识别语言，右圆表示补图灵可识别语言，交集为可判定语言。A_TM 仅在左圆；E_TM、All_PDA、E_LBA、All_LBA 仅在右圆；A_PDA、E_PDA、A_LBA 在交集；All_TM 在两个圆外。</desc>
+  <defs>
+    <clipPath id="right-circle">
+      <circle cx="845" cy="510" r="330"/>
+    </clipPath>
+    <style>
+      .sans { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+      .math { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 38px; font-style: italic; }
+      .sub { font-size: 23px; font-style: normal; }
+      .left { fill: #2b5d8d; }
+      .right { fill: #93542b; }
+      .middle { fill: #25664e; }
+    </style>
+  </defs>
+
+  <rect y="140" width="1280" height="820" rx="24" fill="#ffffff"/>
+
+  <rect x="40" y="150" width="1200" height="800" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+
+  <circle cx="435" cy="510" r="330" fill="#eaf2fc"/>
+  <circle cx="845" cy="510" r="330" fill="#fff1e6"/>
+  <circle cx="435" cy="510" r="330" fill="#e1f1e8" clip-path="url(#right-circle)"/>
+  <circle cx="435" cy="510" r="330" fill="none" stroke="#628bb9" stroke-width="3"/>
+  <circle cx="845" cy="510" r="330" fill="none" stroke="#c38b62" stroke-width="3"/>
+
+  <g class="sans left" text-anchor="middle">
+    <text x="385" y="320" font-size="33" font-weight="600">图灵可识别</text>
+  </g>
+  <g class="sans right" text-anchor="middle">
+    <text x="895" y="320" font-size="33" font-weight="600">补图灵可识别</text>
+  </g>
+  <g class="sans middle" text-anchor="middle">
+    <text x="640" y="376" font-size="33" font-weight="600">可判定</text>
+  </g>
+
+  <g id="a-tm" class="left" data-region="recognizable-only" transform="translate(40 20)">
+    <circle cx="290" cy="499" r="5"/>
+    <text class="math" x="312" y="510">A<tspan class="sub" dy="9">TM</tspan></text>
+  </g>
+
+  <g class="middle" data-region="decidable">
+    <g id="a-pda">
+      <circle cx="570" cy="470" r="5"/>
+      <text class="math" x="592" y="481">A<tspan class="sub" dy="9">PDA</tspan></text>
+    </g>
+    <g id="e-pda">
+      <circle cx="570" cy="550" r="5"/>
+      <text class="math" x="592" y="561">E<tspan class="sub" dy="9">PDA</tspan></text>
+    </g>
+    <g id="a-lba">
+      <circle cx="570" cy="630" r="5"/>
+      <text class="math" x="592" y="641">A<tspan class="sub" dy="9">LBA</tspan></text>
+    </g>
+  </g>
+
+  <g class="right" data-region="co-recognizable-only" transform="translate(-45 0)">
+    <g id="e-tm">
+      <circle cx="900" cy="405" r="5"/>
+      <text class="math" x="922" y="416">E<tspan class="sub" dy="9">TM</tspan></text>
+    </g>
+    <g id="all-pda">
+      <circle cx="900" cy="483" r="5"/>
+      <text class="math" x="922" y="494">All<tspan class="sub" dy="9">PDA</tspan></text>
+    </g>
+    <g id="e-lba">
+      <circle cx="900" cy="561" r="5"/>
+      <text class="math" x="922" y="572">E<tspan class="sub" dy="9">LBA</tspan></text>
+    </g>
+    <g id="all-lba">
+      <circle cx="900" cy="639" r="5"/>
+      <text class="math" x="922" y="650">All<tspan class="sub" dy="9">LBA</tspan></text>
+    </g>
+  </g>
+
+  <g id="all-tm" fill="#455367" data-region="neither">
+    <circle cx="570" cy="877" r="5"/>
+    <text class="math" x="592" y="888">All<tspan class="sub" dy="9">TM</tspan></text>
+  </g>
+</svg>
