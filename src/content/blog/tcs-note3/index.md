@@ -21,9 +21,11 @@ language: '中文'
 
 一个**图灵机**是一个七元组 $M = (Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})$，其中 $\Sigma \subseteq \Gamma$，$\delta: Q \times \Gamma \to Q \times \Gamma \times \{L, R, S\}$。图灵机可以认为是一台具有无穷长双向读写纸带的自动机（可以单向无穷长，也可以双向，是等价的），$\Sigma$ 是输入字母表，$\Gamma$ 是纸带字母表，转移函数 $\delta(p, a) = (q, b, L)$ 表示当前处于状态 $p$，读取字母 $a$ 后转移到状态 $q$、把 $a$ 修改成 $b$、把读写头向左移动，画成状态转移图：
 
-<p align="center">
-    <img src="/src/content/blog/tcs-note3/1.jpg" alt="1" width="30%"/>
-</p>
+<div style="width: 30%; margin-inline: auto;">
+
+![图灵机状态转移图](./1.jpg)
+
+</div>
 
 $q_{accept}$ 和 $q_{reject}$ 分别是接受状态、拒绝状态，除了这两种状态外，图灵机还有可能永不停机。
 
@@ -68,9 +70,11 @@ $q_{accept}$ 和 $q_{reject}$ 分别是接受状态、拒绝状态，除了这�
 
 三类语言可以画成下面的图：
 
-<p align="center">
-    <img src="/src/content/blog/tcs-note3/2.jpg" alt="2" width="50%"/>
-</p>
+<div style="width: 50%; margin-inline: auto;">
+
+![可判定、可识别与补可识别语言的关系](./2.jpg)
+
+</div>
 
 
 下面来关注枚举器，对于某个语言 $L$，如果存在图灵机 $M$，使得：
@@ -184,35 +188,49 @@ $$
 希尔伯特的第十问题：是否存在一个机械性的过程来判定整系数多项式方程是否有解？这个“机械过程”也就是“计算”，历史上存在多种对于“计算”的形式化描述：
 
 1. 图灵机。把图灵可判定称为可计算，把可识别称为半可计算。
+
 2. $\lambda$-演算。由丘奇（Church）提出，包含三种基本表达式：
-$$
-M ::= x \mid (\lambda x.M) \mid (M\,N)
-$$
-分别表示变量 $x$，以 $x$ 为参数、函数体为 $M$ 的函数、把函数 $M$ 作用于参数 $N$。它有简单的计算规则，比如
-$$
-\lambda x.x \equiv_\alpha \lambda y.y （\alpha-变换） \\
-(\lambda x.M)\,N\to M[x:=N] （\beta-归约）
-$$
+
+    $$
+    M ::= x \mid (\lambda x.M) \mid (M\,N)
+    $$
+
+    分别表示变量 $x$，以 $x$ 为参数、函数体为 $M$ 的函数、把函数 $M$ 作用于参数 $N$。它有简单的计算规则，比如
+
+    $$
+    \lambda x.x \equiv_\alpha \lambda y.y （\alpha-变换） \\
+    (\lambda x.M)\,N\to M[x:=N] （\beta-归约）
+    $$
+
 3. 递归函数。最早由哥德尔提出，后来被 Kleene、Herbrand 等人改进。有三种初始函数：
-$$
-Z(x)=0 （零函数）\\
-S(x)=x+1 （后继函数）\\
-P_i^n(x_1,\dots,x_n)=x_i （投影函数）
-$$
-允许使用以下规则构造新的函数：
-   1. 复合
-   2. 原始递归，即
-     $$
-     \begin{aligned}
-     f(\vec x,0)&=g(\vec x)\\
-     f(\vec x,n+1)&=h(\vec x,n,f(\vec x,n))
-     \end{aligned}
-     $$
-   3. 无穷搜索，即 $\mu$ 算子
+
     $$
-    f(\vec x)=\mu y\,[g(\vec x,y)=0]
+    Z(x)=0 （零函数）\\
+    S(x)=x+1 （后继函数）\\
+    P_i^n(x_1,\dots,x_n)=x_i （投影函数）
     $$
-    寻找使 \(g(\vec x,y)=0\) 成立的最小自然数 \(y\)。不加入这一条时叫做原始递归，著名的 Ackermann 函数是全可计算的，但不是原始递归函数。
+
+    允许使用以下规则构造新的函数：
+
+    1. 复合
+
+    2. 原始递归，即
+
+        $$
+        \begin{aligned}
+        f(\vec x,0)&=g(\vec x)\\
+        f(\vec x,n+1)&=h(\vec x,n,f(\vec x,n))
+        \end{aligned}
+        $$
+
+    3. 无穷搜索，即 $\mu$ 算子
+
+        $$
+        f(\vec x)=\mu y\,[g(\vec x,y)=0]
+        $$
+
+        寻找使 $g(\vec x,y)=0$ 成立的最小自然数 $y$。不加入这一条时叫做原始递归，著名的 Ackermann 函数是全可计算的，但不是原始递归函数。
+
 4. $0$ 型文法。图灵机的规则本身就像文法规则，假设图灵机处于 $q$ 状态，纸带上是 $x_1\dots x_n$，纸带头位于 $x_i$ 的位置，就可以写成符号串 $x_1\dots x_{i-1}qx_i \dots x_n$，称为图灵机的格局。把转移函数写成格局的变化规则就相当于文法。
 
 我们最终可以证明以上这些计算模型是相互等价的。因此，我们认为图灵机可以计算的就是“可计算的”，图灵机不可计算的就是“不可计算的”。还有图灵完备的概念：一个系统能模拟图灵机，就说它是图灵完备的。希尔伯特的第十问题就可以表述为 $H_10$ 是否可判定，其中（$p$ 是任意变量数目的整系数多项式）：
