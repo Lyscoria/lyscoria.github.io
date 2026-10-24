@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="240" viewBox="0 0 760 240" role="img" aria-labelledby="title description">
+  <title id="title">图灵机状态转移图</title>
+  <desc id="description">初始箭头指向状态 p；从 p 到 q 的转移标为 a → b, L，表示读取 a、写入 b 并向左移动。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="16" refY="9" viewBox="0 0 18 18" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 16 9 L 1 17 Z" fill="#8295ab"/>
+    </marker>
+    <style>
+      .edge { fill: none; stroke: #8295ab; stroke-width: 3; stroke-linecap: round; marker-end: url(#arrow); }
+      .state { fill: #eaf2fc; stroke: #628bb9; stroke-width: 2.5; }
+      .math { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-style: italic; text-anchor: middle; }
+      .state-label { font-size: 45px; fill: #2b5d8d; }
+      .transition { font-size: 36px; fill: #45586e; }
+    </style>
+  </defs>
+  <rect width="760" height="240" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="712" height="192" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+  <g class="edge">
+    <path id="initial" d="M 72 124 H 132"/>
+    <path data-from="p" data-to="q" data-read="a" data-write="b" data-move="L" d="M 228 124 H 592"/>
+  </g>
+  <text class="math transition" x="410" y="96">a → b, <tspan font-style="normal">L</tspan></text>
+  <g id="p" data-initial="true">
+    <circle class="state" cx="180" cy="124" r="48"/>
+    <text class="math state-label" x="180" y="137">p</text>
+  </g>
+  <g id="q">
+    <circle class="state" cx="640" cy="124" r="48"/>
+    <text class="math state-label" x="640" y="137">q</text>
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" role="img" aria-labelledby="title description">
+  <title id="title">图灵可识别、图灵可判定与补图灵可识别语言的关系</title>
+  <desc id="description">左圆表示图灵可识别语言，右圆表示补图灵可识别语言，交集为图灵可判定语言。</desc>
+  <defs>
+    <clipPath id="right-circle">
+      <circle cx="640" cy="310" r="255"/>
+    </clipPath>
+    <style>
+      .label { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; font-size: 32px; font-weight: 600; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1000" height="620" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="952" height="572" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+  <circle cx="360" cy="310" r="255" fill="#eaf2fc"/>
+  <circle cx="640" cy="310" r="255" fill="#fff1e6"/>
+  <circle cx="360" cy="310" r="255" fill="#e1f1e8" clip-path="url(#right-circle)"/>
+  <circle cx="360" cy="310" r="255" fill="none" stroke="#628bb9" stroke-width="3"/>
+  <circle cx="640" cy="310" r="255" fill="none" stroke="#c38b62" stroke-width="3"/>
+  <g class="label" fill="#2b5d8d">
+    <text x="265" y="298">图灵</text>
+    <text x="265" y="344">可识别</text>
+  </g>
+  <g class="label" fill="#25664e">
+    <text x="500" y="298">图灵</text>
+    <text x="500" y="344">可判定</text>
+  </g>
+  <g class="label" fill="#93542b">
+    <text x="735" y="298">补图灵</text>
+    <text x="735" y="344">可识别</text>
+  </g>
+</svg>
