@@ -113,7 +113,9 @@ const typographyConfig: TypographyOptions = {
     // List
     'ol, ul': { 'padding-inline-start': '1.625em' },
     'ol>li, ul>li': { 'padding-inline-start': '.375em' },
-    li: { 'margin-top': '.5em', 'margin-bottom': '.5em' },
+    li: { 'margin-top': '0', 'margin-bottom': '0' },
+    'li > p': { 'margin-top': '0', 'margin-bottom': '0' },
+    'li > ol, li > ul': { 'margin-top': '0', 'margin-bottom': '0' },
     // Others
     img: { 'border-radius': radius, margin: '0 auto' },
     kbd: {
