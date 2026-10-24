@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="660" viewBox="0 0 920 660" role="img" aria-labelledby="title description">
+  <title id="title">识别 0ⁿ1ⁿ 的下推自动机</title>
+  <desc id="description">初始状态 q0 经 ε, ε → $ 到 q1；q1 自环为 0, ε → 0，经 ε, ε → ε 到 q2；q2 自环为 1, 0 → ε，经 ε, $ → ε 到接受状态 q3。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="16" refY="9" viewBox="0 0 18 18" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 16 9 L 1 17 Z" fill="#8295ab"/>
+    </marker>
+    <style>
+      .edge { fill: none; stroke: #8295ab; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+      .state { fill: #eaf2fc; stroke: #628bb9; stroke-width: 2.5; }
+      .math { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; }
+      .state-label { font-size: 45px; font-style: italic; text-anchor: middle; fill: #2b5d8d; }
+      .sub { font-size: 27px; font-style: normal; }
+      .transition { font-size: 34px; fill: #45586e; }
+    </style>
+  </defs>
+  <rect width="920" height="660" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="872" height="612" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+  <g transform="translate(-24 -100)">
+  <g class="edge">
+    <path id="initial" d="M 95 260 H 162"/>
+    <path data-from="q0" data-to="q1" data-input="ε" data-pop="ε" data-push="$" d="M 258 260 H 592"/>
+    <path data-from="q1" data-to="q1" data-input="0" data-pop="ε" data-push="0" d="M 688 260 A 48 48 0 1 0 640 212"/>
+    <path data-from="q1" data-to="q2" data-input="ε" data-pop="ε" data-push="ε" d="M 640 308 V 552"/>
+    <path data-from="q2" data-to="q2" data-input="1" data-pop="0" data-push="ε" d="M 640 648 A 48 48 0 1 0 688 600"/>
+    <path data-from="q2" data-to="q3" data-input="ε" data-pop="$" data-push="ε" d="M 592 600 H 265"/>
+  </g>
+  <g class="math transition">
+    <text x="425" y="225" text-anchor="middle">ε, ε → $</text>
+    <text x="755" y="224">0, ε → 0</text>
+    <text x="675" y="443">ε, ε → ε</text>
+    <text x="755" y="660">1, 0 → ε</text>
+    <text x="425" y="565" text-anchor="middle">ε, $ → ε</text>
+  </g>
+  <g class="math state-label">
+    <g id="q0" data-initial="true">
+      <circle class="state" cx="210" cy="260" r="48"/>
+      <text x="210" y="272">q<tspan class="sub" dy="8">0</tspan></text>
+    </g>
+    <g id="q1">
+      <circle class="state" cx="640" cy="260" r="48"/>
+      <text x="640" y="272">q<tspan class="sub" dy="8">1</tspan></text>
+    </g>
+    <g id="q2">
+      <circle class="state" cx="640" cy="600" r="48"/>
+      <text x="640" y="612">q<tspan class="sub" dy="8">2</tspan></text>
+    </g>
+    <g id="q3" data-accepting="true">
+      <circle cx="210" cy="600" r="48" fill="#e1f1e8" stroke="#69a58b" stroke-width="2.5"/>
+      <circle cx="210" cy="600" r="55" fill="none" stroke="#69a58b" stroke-width="2.5"/>
+      <text x="210" y="612" fill="#25664e">q<tspan class="sub" dy="8">3</tspan></text>
+    </g>
+  </g>
+  </g>
+</svg>

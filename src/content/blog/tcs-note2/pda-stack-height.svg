@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1660" height="700" viewBox="0 0 1660 700" role="img" aria-labelledby="title description">
+  <title id="title">PDA 的栈高度与输入串</title>
+  <desc id="description">两个栈高度图。左图从 r 经读入 a 并压入 x 到 p，经一段始终不低于当前栈高度的路径 A_pq 到 q，再读入 b 并弹出 x 到 s，整个区间为 A_rs。右图从 p 到 q 的区间 A_pq 与从 q 到 r 的区间 A_qr 拼接为 A_pr。两图纵轴均为栈高度，横轴均为输入串。</desc>
+  <defs>
+    <marker id="axis-arrow" markerWidth="17" markerHeight="17" refX="15" refY="8.5" viewBox="0 0 17 17" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 15 8.5 L 1 16" fill="none" stroke="#8295ab" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="blue-arrow" markerWidth="15" markerHeight="15" refX="13" refY="7.5" viewBox="0 0 15 15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 13 7.5 L 1 14 Z" fill="#628bb9"/>
+    </marker>
+    <marker id="range-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" viewBox="0 0 12 12" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="#c38b62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .axis { fill: none; stroke: #8295ab; stroke-width: 2.5; stroke-linecap: round; marker-end: url(#axis-arrow); }
+      .path { fill: none; stroke: #45586e; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .step { fill: none; stroke: #628bb9; stroke-width: 3; marker-end: url(#blue-arrow); }
+      .projection { fill: none; stroke: #c38b62; stroke-width: 2; stroke-dasharray: 5 7; }
+      .range { fill: none; stroke: #c38b62; stroke-width: 2.5; marker-start: url(#range-arrow); marker-end: url(#range-arrow); }
+      .sans { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; font-size: 29px; fill: #45586e; }
+      .math { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 36px; font-style: italic; text-anchor: middle; }
+      .sub { font-size: 23px; }
+      .point-label { fill: #2b5d8d; }
+      .range-label { fill: #93542b; }
+    </style>
+  </defs>
+  <rect width="1660" height="700" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="1612" height="652" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+
+  <g class="axis">
+    <path d="M 150 580 V 105"/>
+    <path d="M 80 510 H 800"/>
+    <path d="M 920 580 V 130"/>
+    <path d="M 860 510 H 1570"/>
+  </g>
+  <g class="sans" text-anchor="middle">
+    <text x="105" y="165">栈<tspan x="105" dy="36">高</tspan><tspan x="105" dy="36">度</tspan></text>
+    <text x="875" y="180">栈<tspan x="875" dy="36">高</tspan><tspan x="875" dy="36">度</tspan></text>
+    <text x="760" y="565">输入串</text>
+    <text x="1530" y="565">输入串</text>
+  </g>
+
+  <path class="path" d="M 315 365 L 365 245 L 410 350 L 495 135 L 580 365"/>
+  <path class="step" d="M 285 430 L 315 365"/>
+  <path class="step" d="M 580 365 L 610 430"/>
+  <g class="projection">
+    <path d="M 285 430 V 570 M 315 365 V 490 M 580 365 V 490 M 610 430 V 570"/>
+  </g>
+  <g fill="#628bb9">
+    <circle cx="315" cy="365" r="4.5"/>
+    <circle cx="580" cy="365" r="4.5"/>
+  </g>
+  <g fill="#f8fafc" stroke="#628bb9" stroke-width="2.5">
+    <circle cx="285" cy="430" r="5"/>
+    <circle cx="610" cy="430" r="5"/>
+  </g>
+  <g class="math point-label">
+    <text x="292" y="350">p</text>
+    <text x="601" y="351">q</text>
+    <text x="263" y="445">r</text>
+    <text x="636" y="445">s</text>
+  </g>
+  <g class="range">
+    <path d="M 285 480 H 315"/>
+    <path d="M 315 480 H 580"/>
+    <path d="M 580 480 H 610"/>
+    <path d="M 285 555 H 610"/>
+  </g>
+  <g class="math range-label">
+    <text x="252" y="407">x</text>
+    <text x="548" y="407">x</text>
+    <text x="300" y="465" font-size="27">a</text>
+    <text x="595" y="465" font-size="27">b</text>
+    <text x="447" y="460">A<tspan class="sub" dy="8">pq</tspan></text>
+    <text x="447" y="608">A<tspan class="sub" dy="8">rs</tspan></text>
+  </g>
+
+  <path class="path" d="M 1050 410 L 1120 190 L 1210 410 L 1300 190 L 1400 410"/>
+  <path d="M 1050 410 H 1400" fill="none" stroke="#628bb9" stroke-width="2" stroke-dasharray="5 10"/>
+  <g class="projection">
+    <path d="M 1050 410 V 570 M 1210 410 V 500 M 1400 410 V 570"/>
+  </g>
+  <g fill="#628bb9">
+    <circle cx="1050" cy="410" r="4.5"/>
+    <circle cx="1210" cy="410" r="4.5"/>
+    <circle cx="1400" cy="410" r="4.5"/>
+  </g>
+  <g class="math point-label">
+    <text x="1025" y="430">p</text>
+    <text x="1210" y="447">q</text>
+    <text x="1425" y="430">r</text>
+  </g>
+  <g class="range">
+    <path d="M 1050 490 H 1210"/>
+    <path d="M 1210 490 H 1400"/>
+    <path d="M 1050 555 H 1400"/>
+  </g>
+  <g class="math range-label">
+    <text x="1130" y="470">A<tspan class="sub" dy="8">pq</tspan></text>
+    <text x="1305" y="470">A<tspan class="sub" dy="8">qr</tspan></text>
+    <text x="1225" y="608">A<tspan class="sub" dy="8">pr</tspan></text>
+  </g>
+</svg>

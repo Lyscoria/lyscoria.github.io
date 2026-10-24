@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" role="img" aria-labelledby="title description">
+  <title id="title">上下文无关文法的语法分析树</title>
+  <desc id="description">根 S 展开为 0、S、1，中间的 S 再展开为 0、S、1，最内层 S 展开为 ε。</desc>
+  <defs>
+    <style>
+      .edge { fill: none; stroke: #8295ab; stroke-width: 2.5; stroke-linecap: round; }
+      .symbol { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 45px; text-anchor: middle; fill: #45586e; }
+      .variable { fill: #2b5d8d; font-style: italic; }
+      .empty { fill: #25664e; }
+    </style>
+  </defs>
+  <rect width="600" height="600" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="552" height="552" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+  <g class="edge">
+    <path d="M 282 119 L 164 200"/>
+    <path d="M 300 122 V 200"/>
+    <path d="M 318 119 L 436 200"/>
+    <path d="M 282 259 L 216 340"/>
+    <path d="M 300 262 V 340"/>
+    <path d="M 318 259 L 384 340"/>
+    <path d="M 300 402 V 480"/>
+  </g>
+  <g class="symbol">
+    <text class="variable" x="300" y="105">S</text>
+    <text x="150" y="245">0</text>
+    <text class="variable" x="300" y="245">S</text>
+    <text x="450" y="245">1</text>
+    <text x="205" y="385">0</text>
+    <text class="variable" x="300" y="385">S</text>
+    <text x="395" y="385">1</text>
+    <text class="empty" x="300" y="525">ε</text>
+  </g>
+</svg>

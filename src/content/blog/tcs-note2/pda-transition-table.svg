@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="552" viewBox="0 0 1260 552" role="img" aria-labelledby="title description">
+  <title id="title">PDA 状态转移表</title>
+  <desc id="description">输入按 0、1、ε 分组，每组的栈符号依次为 0、$、ε。状态为 q1、q2、q3、q4。非空项只有五个：δ(q1,ε,ε)={(q2,$)}；δ(q2,0,ε)={(q2,0)}；δ(q2,1,0)={(q3,ε)}；δ(q3,1,0)={(q3,ε)}；δ(q3,ε,$)={(q4,ε)}。其余项均为空集。</desc>
+  <defs>
+    <style>
+      .sans { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: #45586e; font-size: 31px; text-anchor: middle; }
+      .math { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; text-anchor: middle; }
+      .header { font-size: 36px; fill: #2b5d8d; }
+      .state { font-size: 34px; fill: #2b5d8d; font-style: italic; }
+      .sub { font-size: 22px; font-style: normal; }
+      .entry { font-size: 32px; fill: #2b5d8d; }
+      .empty { font-size: 36px; fill: #8295ab; }
+      .grid { fill: none; stroke: #c4d3e3; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect width="1260" height="552" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="1212" height="504" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+  <g transform="translate(0 -54)">
+  <rect x="48" y="102" width="1164" height="152" fill="#eaf2fc"/>
+  <rect x="48" y="254" width="140" height="304" fill="#eff5fc"/>
+  <rect x="188" y="330" width="1024" height="76" fill="#ffffff"/>
+  <rect x="188" y="482" width="1024" height="76" fill="#ffffff"/>
+  <g class="grid">
+    <path d="M 48 102 H 1212 V 558 H 48 Z"/>
+    <path d="M 48 178 H 1212 M 48 254 H 1212 M 104 330 H 1212 M 104 406 H 1212 M 104 482 H 1212"/>
+    <path d="M 188 102 V 558 M 492 102 V 558 M 796 102 V 558 M 104 254 V 558"/>
+    <path d="M 252 178 V 558"/>
+    <path d="M 316 178 V 558"/>
+    <path d="M 668 178 V 558"/>
+    <path d="M 732 178 V 558"/>
+    <path d="M 860 178 V 558"/>
+    <path d="M 1036 178 V 558"/>
+  </g>
+  <g class="sans">
+    <text x="118" y="151">输入</text>
+    <text x="118" y="227">栈</text>
+    <text x="76" y="393">状</text>
+    <text x="76" y="435">态</text>
+  </g>
+  <g class="math header">
+    <text x="340" y="151">0</text>
+    <text x="644" y="151">1</text>
+    <text x="1004" y="151">ε</text>
+    <text x="220" y="227">0</text>
+    <text x="284" y="227">$</text>
+    <text x="404" y="227">ε</text>
+    <text x="580" y="227">0</text>
+    <text x="700" y="227">$</text>
+    <text x="764" y="227">ε</text>
+    <text x="828" y="227">0</text>
+    <text x="948" y="227">$</text>
+    <text x="1124" y="227">ε</text>
+  </g>
+  <g>
+    <text class="math state" x="146" y="303">q<tspan class="sub" dy="7">1</tspan></text>
+    <g data-state="q1" data-input="0" data-stack="0"><text class="math empty" x="220" y="303">∅</text></g>
+    <g data-state="q1" data-input="0" data-stack="$"><text class="math empty" x="284" y="303">∅</text></g>
+    <g data-state="q1" data-input="0" data-stack="ε"><text class="math empty" x="404" y="303">∅</text></g>
+    <g data-state="q1" data-input="1" data-stack="0"><text class="math empty" x="580" y="303">∅</text></g>
+    <g data-state="q1" data-input="1" data-stack="$"><text class="math empty" x="700" y="303">∅</text></g>
+    <g data-state="q1" data-input="1" data-stack="ε"><text class="math empty" x="764" y="303">∅</text></g>
+    <g data-state="q1" data-input="ε" data-stack="0"><text class="math empty" x="828" y="303">∅</text></g>
+    <g data-state="q1" data-input="ε" data-stack="$"><text class="math empty" x="948" y="303">∅</text></g>
+    <g data-state="q1" data-input="ε" data-stack="ε"><text class="math entry" x="1124" y="303">{(q<tspan class="sub" dy="7">2</tspan><tspan dy="-7">,$)}</tspan></text></g>
+    <text class="math state" x="146" y="379">q<tspan class="sub" dy="7">2</tspan></text>
+    <g data-state="q2" data-input="0" data-stack="0"><text class="math empty" x="220" y="379">∅</text></g>
+    <g data-state="q2" data-input="0" data-stack="$"><text class="math empty" x="284" y="379">∅</text></g>
+    <g data-state="q2" data-input="0" data-stack="ε"><text class="math entry" x="404" y="379">{(q<tspan class="sub" dy="7">2</tspan><tspan dy="-7">,0)}</tspan></text></g>
+    <g data-state="q2" data-input="1" data-stack="0"><text class="math entry" x="580" y="379">{(q<tspan class="sub" dy="7">3</tspan><tspan dy="-7">,ε)}</tspan></text></g>
+    <g data-state="q2" data-input="1" data-stack="$"><text class="math empty" x="700" y="379">∅</text></g>
+    <g data-state="q2" data-input="1" data-stack="ε"><text class="math empty" x="764" y="379">∅</text></g>
+    <g data-state="q2" data-input="ε" data-stack="0"><text class="math empty" x="828" y="379">∅</text></g>
+    <g data-state="q2" data-input="ε" data-stack="$"><text class="math empty" x="948" y="379">∅</text></g>
+    <g data-state="q2" data-input="ε" data-stack="ε"><text class="math empty" x="1124" y="379">∅</text></g>
+    <text class="math state" x="146" y="455">q<tspan class="sub" dy="7">3</tspan></text>
+    <g data-state="q3" data-input="0" data-stack="0"><text class="math empty" x="220" y="455">∅</text></g>
+    <g data-state="q3" data-input="0" data-stack="$"><text class="math empty" x="284" y="455">∅</text></g>
+    <g data-state="q3" data-input="0" data-stack="ε"><text class="math empty" x="404" y="455">∅</text></g>
+    <g data-state="q3" data-input="1" data-stack="0"><text class="math entry" x="580" y="455">{(q<tspan class="sub" dy="7">3</tspan><tspan dy="-7">,ε)}</tspan></text></g>
+    <g data-state="q3" data-input="1" data-stack="$"><text class="math empty" x="700" y="455">∅</text></g>
+    <g data-state="q3" data-input="1" data-stack="ε"><text class="math empty" x="764" y="455">∅</text></g>
+    <g data-state="q3" data-input="ε" data-stack="0"><text class="math empty" x="828" y="455">∅</text></g>
+    <g data-state="q3" data-input="ε" data-stack="$"><text class="math entry" x="948" y="455">{(q<tspan class="sub" dy="7">4</tspan><tspan dy="-7">,ε)}</tspan></text></g>
+    <g data-state="q3" data-input="ε" data-stack="ε"><text class="math empty" x="1124" y="455">∅</text></g>
+    <text class="math state" x="146" y="531">q<tspan class="sub" dy="7">4</tspan></text>
+    <g data-state="q4" data-input="0" data-stack="0"><text class="math empty" x="220" y="531">∅</text></g>
+    <g data-state="q4" data-input="0" data-stack="$"><text class="math empty" x="284" y="531">∅</text></g>
+    <g data-state="q4" data-input="0" data-stack="ε"><text class="math empty" x="404" y="531">∅</text></g>
+    <g data-state="q4" data-input="1" data-stack="0"><text class="math empty" x="580" y="531">∅</text></g>
+    <g data-state="q4" data-input="1" data-stack="$"><text class="math empty" x="700" y="531">∅</text></g>
+    <g data-state="q4" data-input="1" data-stack="ε"><text class="math empty" x="764" y="531">∅</text></g>
+    <g data-state="q4" data-input="ε" data-stack="0"><text class="math empty" x="828" y="531">∅</text></g>
+    <g data-state="q4" data-input="ε" data-stack="$"><text class="math empty" x="948" y="531">∅</text></g>
+    <g data-state="q4" data-input="ε" data-stack="ε"><text class="math empty" x="1124" y="531">∅</text></g>
+  </g>
+  </g>
+</svg>

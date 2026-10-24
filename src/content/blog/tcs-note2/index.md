@@ -25,7 +25,11 @@ S \Rightarrow 0S1 \Rightarrow 00S11 \Rightarrow 0011
 $$
 多步派生可以用 $\Rightarrow^*$ 表示，即 $S \Rightarrow^* 0^n1^n$，$\forall n \in \mathbb{N}$。定义文法生成的语言 $L(G) = \{w \in \Sigma^* \mid S \Rightarrow^* w\}$，所有能够由上下文无关文法生成的语言称为**上下文无关语言**。左端相同的产生规则可以简写，比如 $S \to \varepsilon \mid 0S1$。派生过程可以表示为树结构，称为语法分析树，比如：
 
-![example1](tree.jpg)
+<div style="width: 100%; max-width: 360px; margin-inline: auto;">
+
+![上下文无关文法的语法分析树](./parse-tree.svg)
+
+</div>
 
 另一个例子：所有能配平的括号串，可以表示为 $G = (\{S\}, \{(, )\}, \{S \to \varepsilon \mid (S) \mid SS\}, S)$。考虑如下派生过程：
 $$
@@ -50,16 +54,20 @@ $$
 下面可以来证明上下文无关语言的封闭性。设上下文无关语言 $A$ 的文法为 $G_1$，初始符号 $S_1$，上下文无关语言 $B$ 的文法为 $G_2$，初始符号 $S_2$，不妨设两个语言变元不重名。
 1. $AB$ 仍是上下文无关语言，只需要引入初始符号 $S$ 和规则 $S \to S_1S_2$，并继承其他所有规则。
 2. $A \cup B$ 仍是上下文无关语言，只需要引入初始符号 $S$ 和规则 $S \to S_1 \mid S_2$，并继承其他所有规则。
-3. $A^*$ 仍是上下文无关语言，只需要引入初始符号 $S$ 和规则 $S \to \varepsilon \mid S_1S，并继承其他所有规则$。
+3. $A^*$ 仍是上下文无关语言，只需要引入初始符号 $S$ 和规则 $S \to \varepsilon \mid S_1S$，并继承其他所有规则。
 4. $A^R$（字符串反转）仍是上下文无关语言，只需要把原规则的右侧全部反转。
 
 在说明对交和补不封闭之前，我们先来阐述判定语言不是上下文无关语言的判据：
 
 **定理（泵引理）** 设 $L$ 是上下文无关语言，则存在泵长度 $p$，使得 $\forall s \in L$，如果 $|s| \ge p$，则 $\exists u, v, x, y, z$，$s = uvxyz$ 且 $|vxy| \le p$，$|vy| > 0$，$uv^ixy^iz \in L$，$\forall i \in \mathbb{N}$。
 
-证明思路也比较直观，考虑语法分析树（如下图），只要串足够长，语法分析树就足够高，那就必然存在足够长的路径，这条路径上就会有重复的变元。把父节点变元重复展开（图中把蓝色“子子树”反复替换为红色子树），就可以一直泵下去：
+证明思路也比较直观，考虑语法分析树，只要串足够长，语法分析树就足够高，那就必然存在足够长的路径，这条路径上就会有重复的变元。如图，两个星星形状的结点是同一个非终结符，我们可以把下方橙色小子树替换成蓝色大子树，反复套娃不断替换，就可以让树一直生长下去：
 
-![lemma](beng.jpg)
+<div style="width: 100%; max-width: 560px; margin-inline: auto;">
+
+![上下文无关语言泵引理的语法树分解](./cfl-pumping-lemma.svg)
+
+</div>
 
 具体来说：
 - 具体来说，令 $b = \max_{A\to w \in R} |w|$ 为产生式右侧最大长度，不妨设 $b \ge 2$。取 $p = b^{|V|+1}$，这样我们的语法分析树至多是 $b$ 叉树，且必然存在长度超过 $|V|$ 的、从根结点到叶结点的路径。
@@ -88,7 +96,7 @@ A \to \varepsilon \\
 A \to a \\
 A \to aB
 $$
-我们称之为**右线性文法**。
+这类文法被称为**右线性文法**。
 
 虽然上下文无关语言对交不封闭，但是有如下结论：
 
@@ -102,13 +110,21 @@ $$
 
 下面看一个例子，是识别 $\{0^n1^n \mid n \in \mathbb{N}\}$ 的 PDA：
 
-![example2](pda.jpg)
+<div style="width: 100%; max-width: 640px; margin-inline: auto;">
+
+![识别零一配对串的下推自动机](./pda-example.svg)
+
+</div>
 
 注意这里 $\varepsilon \to a$ 表示将 $a$ 压栈，$a \to \varepsilon$ 表示将 $a$ 弹栈。首先，PDA 不读输入，先压入栈底符号 $\text{\textdollar}$，到达 $q_1$。然后，只要读到 $0$，就将其压栈。通过 $\varepsilon$ 转移到达 $q_2$ 之后，只要读到 $1$ 就弹出一个 $0$。最后读完输入，弹出栈底符号，到达接受状态 $q_3$。
 
 PDA 也可以用表格的方式呈现，如下图（但下图表示的 PDA 无法接受空串）：
 
-![example3](pdatable.png)
+<div style="width: 100%; max-width: 760px; margin-inline: auto;">
+
+![下推自动机的转移表](./pda-transition-table.svg)
+
+</div>
 
 一般性地，我们也可以直接根据文法来设计 PDA：
 
@@ -116,14 +132,14 @@ PDA 也可以用表格的方式呈现，如下图（但下图表示的 PDA 无�
 
 算法：
 
-1. 从 $q_{start}$，不读输入，把 $\text{\textdollar}$ 和 $S$ 压栈，到达 $q_{loop}$。
-2. 在 $q_{loop}$，如果栈顶是终结符 $a$，读输入 $a$，并把 $a$ 弹出，回到 $q_{loop}$。
-3. 在 $q_{loop}$，如果栈顶是非终结符 $A$，不读输入，把栈顶 $A$ 按照规则 $A \to w$ 换成 $w$，回到 $q_{loop}$。
-4. 在 $q_{loop}$，栈顶为 $\text{\textdollar}$，不读输入，弹出 $\text{\textdollar}$，转移到 $q_{accept}$，后者为唯一的接受状态。
+1. 从 $q_{\text{start}}$，不读输入，把 $\text{\textdollar}$ 和 $S$ 压栈，到达 $q_{\text{loop}}$。
+2. 在 $q_{\text{loop}}$，如果栈顶是终结符 $a$，读输入 $a$，并把 $a$ 弹出，回到 $q_{\text{loop}}$。
+3. 在 $q_{\text{loop}}$，如果栈顶是非终结符 $A$，不读输入，把栈顶 $A$ 按照规则 $A \to w$ 换成 $w$，回到 $q_{\text{loop}}$。
+4. 在 $q_{\text{loop}}$，栈顶为 $\text{\textdollar}$，不读输入，弹出 $\text{\textdollar}$，转移到 $q_{\text{accept}}$，后者为唯一的接受状态。
 
 如果 $A \to w$ 的 $w$ 不止一个字符，可以引入若干中间状态逐步完成。
 
-这种方式是自顶向下的，除此之外还可以自底向上；自底向上使用派生的逆过程——**规约**，比如 $0011 \mapsto 00S11 \mapsto 0S1 \mapsto S$。这个过程同样可以使用栈来模拟，当栈顶出现产生式右端的模式时进行一步规约，等到读完输入时栈里只剩一个 $S$。此处不详细展开。~~其实选修编译原理可以进一步学习~~
+这种方式是自顶向下的，除此之外还可以自底向上；自底向上使用派生的逆过程——**归约**，比如 $0011 \mapsto 00S11 \mapsto 0S1 \mapsto S$。这个过程同样可以使用栈来模拟，当栈顶出现产生式右端的模式时进行一步归约，等到读完输入时栈里只剩一个 $S$。此处不详细展开。~~其实选修编译原理可以进一步学习~~
 
 反过来，
 
@@ -131,14 +147,18 @@ PDA 也可以用表格的方式呈现，如下图（但下图表示的 PDA 无�
 
 上下文无关文法的构造方式如下：
 
-- 不失一般性地（可以看出每个 PDA 总能转化成后面的样子），假设 PDA 只有唯一接受状态 $q_{accept}$ 且接受时栈空，每一次转移要么压栈要么弹栈。令初始变元为 $A_{q_0q_{accept}}$。
+- 不失一般性地（可以看出每个 PDA 总能转化成后面的样子），假设 PDA 只有唯一接受状态 $q_{\text{accept}}$ 且接受时栈空，每一次转移要么压栈要么弹栈。令初始变元为 $A_{q_0q_{\text{accept}}}$。
 - 假如有转移 $(p, x) \in \delta(r, a, \varepsilon)$ 和 $(s, \varepsilon) \in \delta(q, b, x)$，那就添加规则 $A_{rs} \to aA_{pq}b$；
 - 对所有 $p, q, r \in Q$，添加规则 $A_{pr} \to A_{pq}A_{qr}$；
 - 对所有 $p \in Q$，添加规则 $A_{pp} \to \varepsilon$。
 
 这个构造中，$A_{pq}$ 可以粗略理解为“PDA 从状态 $p$ 到达 $q$ 且栈恢复原状、不变动栈初始内容的过程中接受的串”。可以结合栈高度-输入串图来看：
 
-![explanation](stack.jpg)
+<div style="width: 100%; max-width: 760px; margin-inline: auto;">
+
+![下推自动机的栈高度与输入串](./pda-stack-height.svg)
+
+</div>
 
 ## 乔姆斯基范式 CNF
 

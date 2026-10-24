@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="740" viewBox="0 0 1000 740" role="img" aria-labelledby="title description">
+  <title id="title">上下文无关语言泵引理的语法树分解</title>
+  <desc id="description">整棵树内有蓝色子树，蓝色子树内又有暖色子树。根到叶的路径经过四个结点，其中两个子树根部的重复变元分别以浅蓝色和浅橙色的五角星突出显示。路径中间用省略号表示，并用长椭圆圈出重复展开的部分。树的叶端依次分为 u、v、x、y、z，v 和 y 对应蓝色子树两侧，x 对应最内层子树。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="16" markerHeight="16" refX="14" refY="8" viewBox="0 0 16 16" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 14 8 L 1 15 Z" fill="#8295ab"/>
+    </marker>
+    <style>
+      .branch { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .edge { fill: none; stroke: #8295ab; stroke-width: 2.5; marker-end: url(#arrow); }
+      .brace { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .label { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 48px; font-style: italic; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1000" height="740" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="952" height="692" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+  <path d="M 500 200 L 260 590 H 740 Z" fill="#eaf2fc"/>
+  <path d="M 500 435 L 400 590 H 600 Z" fill="#fff1e6"/>
+  <path class="branch" d="M 130 590 L 500 85 L 870 590" stroke="#8295ab"/>
+  <path class="branch" d="M 260 590 L 500 200 L 740 590" stroke="#628bb9"/>
+  <path class="branch" d="M 400 590 L 500 435 L 600 590" stroke="#c38b62"/>
+  <ellipse cx="500" cy="360" rx="52" ry="205" fill="none" stroke="#9aa9bb" stroke-width="2"/>
+  <g class="edge">
+    <path d="M 500 98 V 178"/>
+    <path d="M 500 211 V 285"/>
+    <path d="M 500 380 V 413"/>
+    <path d="M 500 446 V 507"/>
+  </g>
+  <g fill="#8295ab">
+    <circle cx="500" cy="322" r="3.5"/>
+    <circle cx="500" cy="340" r="3.5"/>
+    <circle cx="500" cy="358" r="3.5"/>
+  </g>
+  <circle cx="500" cy="85" r="12" fill="#f8fafc" stroke="#8295ab" stroke-width="2.5"/>
+  <polygon points="0,-20 5.3,-7.3 19,-6.2 8.6,2.8 11.8,16.2 0,9 -11.8,16.2 -8.6,2.8 -19,-6.2 -5.3,-7.3" transform="translate(500 200)" fill="#eaf2fc" stroke="#628bb9" stroke-width="2.5" stroke-linejoin="round"/>
+  <polygon points="0,-20 5.3,-7.3 19,-6.2 8.6,2.8 11.8,16.2 0,9 -11.8,16.2 -8.6,2.8 -19,-6.2 -5.3,-7.3" transform="translate(500 435)" fill="#fff1e6" stroke="#c38b62" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="500" cy="520" r="12" fill="#e1f1e8" stroke="#69a58b" stroke-width="2.5"/>
+  <g stroke="#8295ab" fill="#45586e">
+    <path class="brace" d="M 130 615 Q 130 628 145 628 H 177 Q 190 628 195 639 Q 200 628 213 628 H 245 Q 260 628 260 615"/>
+    <path class="brace" d="M 740 615 Q 740 628 755 628 H 787 Q 800 628 805 639 Q 810 628 823 628 H 855 Q 870 628 870 615"/>
+    <text class="label" x="195" y="690" stroke="none">u</text>
+    <text class="label" x="805" y="690" stroke="none">z</text>
+  </g>
+  <g stroke="#628bb9" fill="#2b5d8d">
+    <path class="brace" d="M 260 615 Q 260 628 275 628 H 312 Q 325 628 330 639 Q 335 628 348 628 H 385 Q 400 628 400 615"/>
+    <path class="brace" d="M 600 615 Q 600 628 615 628 H 652 Q 665 628 670 639 Q 675 628 688 628 H 725 Q 740 628 740 615"/>
+    <text class="label" x="330" y="690" stroke="none">v</text>
+    <text class="label" x="670" y="690" stroke="none">y</text>
+  </g>
+  <g stroke="#c38b62" fill="#93542b">
+    <path class="brace" d="M 400 615 Q 400 628 415 628 H 482 Q 495 628 500 639 Q 505 628 518 628 H 585 Q 600 628 600 615"/>
+    <text class="label" x="500" y="690" stroke="none">x</text>
+  </g>
+</svg>
