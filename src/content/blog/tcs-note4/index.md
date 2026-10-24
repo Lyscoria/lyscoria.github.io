@@ -92,11 +92,17 @@ Kleene 谱系可以给上面讨论过的计算问题按层级分类（以下的 
 </div>
 
 比如说，
+
 $$E_{TM} = \{\langle M \rangle \mid \forall x, \forall y, y \text{ 是 } M \text{ 在 } x \text{ 上的接受计算历史}\}$$
+
 由于两个 $\forall$ 可以合并成 $\forall (x, y)$，故 $E_{TM}$ 在 $\Pi_1$ 层级。然而，
+
 $$All_{TM} = \{\langle M \rangle \mid \forall x, \exists y, y \text{ 是 } M \text{ 在 } x \text{ 上的接受计算历史}\}$$
+
 这导致 $All_{TM}$ 处于 $\Pi_2$ 层级，比 $E_{TM}$ 高了一级。为什么 $All_{PDA}$，等价地 $All_{CFG}$ 和 $All_{TM}$ 不在同一层级？由于 $A_{CFG}$ 可判定，$All_{CFG}$ 可以直接写成
+
 $$All_{CFG} = \{\langle G \rangle \mid \forall x, x \in L(G)\}$$
+
 这样就只需要一个量词了。除了以上这些问题，还有等价性问题 $EQ = \{\langle M_1, M_2\rangle \mid L(M_1) = L(M_2)\}$，空性和满性都能归约到它，它的层级会更高。
 
 如果对于某个语言 $L_0$，$\forall L \in \Sigma_n, L \le_m L_0$，就说 $L_0$ 是 $\Sigma_n$-完全的；$\Pi_n$ 和 $\Delta_n$ 同理。$A_{TM}$ 就是 $\Sigma_1$-完全的：$\forall L \in \Sigma_1$，$L = \{x\mid \exists y, R(x, y)\}$。设图灵机 $M$ 判定 $R$，我们可以构造一个图灵机，对于任意输入 $x$，枚举所有 $y$ 判定是否有 $R(x, y)$ 成立，只要 $x \in L$，就能有限步内找到 $y$，反之不停机；这样得到的映射 $f: x \mapsto \langle M, x\rangle$ 就把 $L$ 归约到 $A_{TM}$。这也是为什么上文说 $\Sigma_1$ 就等价于图灵可识别。上文已经证明过 $A_{TM} \le_m \overline{E_{TM}}$，由于归约的传递性，$E_{TM}$ 也是 $\Sigma_1$ 完全的。
