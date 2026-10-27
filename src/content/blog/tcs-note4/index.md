@@ -91,15 +91,21 @@ TM $M'$ = “对于输入 $y$，
 
 比如说，
 
-$$E_{\text{TM}} = \{\langle M \rangle \mid \forall x, \forall y, y \text{ 不是 } M \text{ 在 } x \text{ 上的接受计算历史}\}$$
+$$
+E_{\text{TM}} = \{\langle M \rangle \mid \forall x, \forall y, y \text{ 不是 } M \text{ 在 } x \text{ 上的接受计算历史}\}
+$$
 
 由于两个 $\forall$ 可以合并成 $\forall (x, y)$，故 $E_{\text{TM}}$ 在 $\Pi_1$ 层级。然而，
 
-$$\text{All}_{\text{TM}} = \{\langle M \rangle \mid \forall x, \exists y, y \text{ 是 } M \text{ 在 } x \text{ 上的接受计算历史}\}$$
+$$
+\text{All}_{\text{TM}} = \{\langle M \rangle \mid \forall x, \exists y, y \text{ 是 } M \text{ 在 } x \text{ 上的接受计算历史}\}
+$$
 
 这导致 $\text{All}_{\text{TM}}$ 处于 $\Pi_2$ 层级，比 $E_{\text{TM}}$ 高了一级。为什么 $\text{All}_{\text{PDA}}$，等价地 $\text{All}_{\text{CFG}}$ 和 $\text{All}_{\text{TM}}$ 不在同一层级？由于 $A_{\text{CFG}}$ 可判定，$\text{All}_{\text{CFG}}$ 可以直接写成
 
-$$\text{All}_{\text{CFG}} = \{\langle G \rangle \mid \forall x, x \in L(G)\}$$
+$$
+\text{All}_{\text{CFG}} = \{\langle G \rangle \mid \forall x, x \in L(G)\}
+$$
 
 这样就只需要一个量词了。除了以上这些问题，还有没有介绍的等价性问题 $\text{EQ} = \{\langle M_1, M_2\rangle \mid L(M_1) = L(M_2)\}$，空性和满性都能归约到它。
 
