@@ -44,7 +44,7 @@ language: '中文'
 
 状态转移函数 $\delta$ 可以引申为扩展转移函数 $\hat\delta: Q \times \Sigma^* \to Q$，允许接受字符串进行多步转移。
 
-给定一个语言 $L \subseteq \Sigma^*$，定义两个串 $x, y$ 不可区分 $x \sim_L y$ 当且仅当 $\forall z \in \Sigma, xz \in L \leftrightarrow yz \in L$。容易验证不可区分关系是 $\Sigma^*$ 上的等价关系，因此它将 $\Sigma^*$ 划分成若干等价类。直觉上，每个等价类就类似于 DFA 的一个状态，事实上也确实如此：
+给定一个语言 $L \subseteq \Sigma^*$，定义两个串 $x, y$ 不可区分 $x \sim_L y$ 当且仅当 $\forall z \in \Sigma^*, xz \in L \leftrightarrow yz \in L$。容易验证不可区分关系是 $\Sigma^*$ 上的等价关系，因此它将 $\Sigma^*$ 划分成若干等价类。直觉上，每个等价类就类似于 DFA 的一个状态，事实上也确实如此：
 
 **定理（Myhill-Nerode 引理）** $L \subseteq \Sigma^*$ 是正则语言当且仅当 $|\Sigma^*/\sim_L| < +\infty$。
 
