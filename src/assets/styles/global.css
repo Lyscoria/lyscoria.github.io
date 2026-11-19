@@ -42,7 +42,7 @@ span.katex-display {
   overflow-y: scroll;
   padding: 0.5rem;
 }
-.katex-html {
+.katex-display .katex-html {
   overflow: auto hidden;
   padding: 3px;
 }
