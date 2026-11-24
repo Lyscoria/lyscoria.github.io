@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="476" viewBox="0 0 900 476" role="img" aria-labelledby="title description">
+  <title id="title">从 3SAT 到团</title>
+  <desc id="description">每个子句各有三个顶点。高亮的三条边连接第一组的 x₂、第二组的 ¬x₁ 和第三组的 ¬x₁，构成大小为 3 的团。</desc>
+  <defs>
+    <style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; font-size: 29px; font-weight: 600; text-anchor: middle; fill: #2b5d8d; }
+      .node { fill: #ffffff; stroke: #9aaec2; stroke-width: 1.8; }
+      .selected { fill: #d6e7f9; stroke: #2b5d8d; stroke-width: 2.6; }
+      .edge { fill: none; stroke: #bac9d8; stroke-width: 1.7; }
+      .clique { fill: none; stroke: #2b5d8d; stroke-width: 3.8; }
+    </style>
+  </defs>
+  <rect width="900" height="476" rx="24" fill="#ffffff"/>
+  <rect x="18" y="18" width="864" height="440" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+  <g fill="#eff5fc" stroke="#d9e6f3" stroke-width="1.5">
+    <rect x="59" y="172" width="133" height="255" rx="16"/>
+    <rect x="258" y="76" width="384" height="74" rx="16"/>
+    <rect x="708" y="172" width="133" height="255" rx="16"/>
+  </g>
+  <g class="edge">
+    <path d="M 125 220 L 450 113 M 125 220 L 575 113 M 125 220 L 775 306 M 125 220 L 775 392"/>
+    <path d="M 125 306 L 450 113 M 125 306 L 575 113 M 125 306 H 775 M 125 306 L 775 392"/>
+    <path d="M 125 392 L 775 306 M 125 392 H 775"/>
+    <path d="M 325 113 L 775 306 M 325 113 L 775 392 M 450 113 L 775 220 M 575 113 L 775 220"/>
+  </g>
+  <path class="clique" d="M 125 392 L 325 113 L 775 220 Z"/>
+  <g class="node">
+    <ellipse cx="125" cy="220" rx="40" ry="25"/><ellipse cx="125" cy="306" rx="40" ry="25"/>
+    <ellipse cx="450" cy="113" rx="40" ry="25"/><ellipse cx="575" cy="113" rx="40" ry="25"/>
+    <ellipse cx="775" cy="306" rx="40" ry="25"/><ellipse cx="775" cy="392" rx="40" ry="25"/>
+  </g>
+  <g class="selected">
+    <ellipse cx="125" cy="392" rx="40" ry="25"/>
+    <ellipse cx="325" cy="113" rx="40" ry="25"/>
+    <ellipse cx="775" cy="220" rx="40" ry="25"/>
+  </g>
+  <g>
+    <text x="125" y="157">C₁</text><text x="450" y="61">C₂</text><text x="775" y="157">C₃</text>
+    <text x="125" y="229">x₁</text><text x="125" y="315">x₁</text><text x="125" y="401">x₂</text>
+    <text x="325" y="122">¬x₁</text><text x="450" y="122">¬x₂</text><text x="575" y="122">¬x₂</text>
+    <text x="775" y="229">¬x₁</text><text x="775" y="315">x₂</text><text x="775" y="401">x₂</text>
+  </g>
+</svg>

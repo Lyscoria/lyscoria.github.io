@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-labelledby="title description">
+  <title id="title">从 3SAT 到顶点覆盖</title>
+  <desc id="description">上方是两条变量边，下方是三个子句三角形。蓝色顶点组成大小为 8 的覆盖，每条边均至少有一个蓝色端点。</desc>
+  <defs>
+    <style>
+      text { font-family: Inter, "Segoe UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; font-size: 29px; font-weight: 600; text-anchor: middle; fill: #2b5d8d; }
+      .node { fill: #ffffff; stroke: #9aaec2; stroke-width: 1.8; }
+      .selected { fill: #d6e7f9; stroke: #2b5d8d; stroke-width: 2.6; }
+      .edge { fill: none; stroke: #8096ad; stroke-width: 2.1; }
+      .literal-link { fill: none; stroke: #9aadc0; stroke-width: 1.8; stroke-dasharray: 6 5; }
+    </style>
+  </defs>
+  <rect width="900" height="500" rx="24" fill="#ffffff"/>
+  <rect x="18" y="18" width="864" height="464" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+  <path class="literal-link" d="M 198 114 L 168 302 M 198 114 Q 123 213 105 400 M 310 114 L 450 302 M 310 114 L 732 302 M 590 114 L 231 400 M 590 114 L 669 400 M 590 114 Q 791 193 795 400 M 702 114 L 387 400 M 702 114 L 513 400"/>
+  <path class="edge" d="M 198 114 H 310 M 590 114 H 702 M 168 302 L 105 400 H 231 Z M 450 302 L 387 400 H 513 Z M 732 302 L 669 400 H 795 Z"/>
+  <g class="node">
+    <ellipse cx="198" cy="114" rx="40" ry="25"/><ellipse cx="702" cy="114" rx="40" ry="25"/>
+    <ellipse cx="231" cy="400" rx="40" ry="25"/><ellipse cx="450" cy="302" rx="40" ry="25"/>
+    <ellipse cx="732" cy="302" rx="40" ry="25"/>
+  </g>
+  <g class="selected">
+    <ellipse cx="310" cy="114" rx="40" ry="25"/><ellipse cx="590" cy="114" rx="40" ry="25"/>
+    <ellipse cx="168" cy="302" rx="40" ry="25"/><ellipse cx="105" cy="400" rx="40" ry="25"/>
+    <ellipse cx="387" cy="400" rx="40" ry="25"/><ellipse cx="513" cy="400" rx="40" ry="25"/>
+    <ellipse cx="669" cy="400" rx="40" ry="25"/><ellipse cx="795" cy="400" rx="40" ry="25"/>
+  </g>
+  <g>
+    <text x="254" y="67">x₁ = 0</text><text x="646" y="67">x₂ = 1</text>
+    <text x="198" y="123">x₁</text><text x="310" y="123">¬x₁</text>
+    <text x="590" y="123">x₂</text><text x="702" y="123">¬x₂</text>
+    <text x="168" y="311">x₁</text><text x="105" y="409">x₁</text><text x="231" y="409">x₂</text>
+    <text x="450" y="311">¬x₁</text><text x="387" y="409">¬x₂</text><text x="513" y="409">¬x₂</text>
+    <text x="732" y="311">¬x₁</text><text x="669" y="409">x₂</text><text x="795" y="409">x₂</text>
+    <text x="168" y="463">C₁</text><text x="450" y="463">C₂</text><text x="732" y="463">C₃</text>
+  </g>
+</svg>

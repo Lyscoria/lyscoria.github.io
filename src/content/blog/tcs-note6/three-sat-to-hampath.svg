@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="510" viewBox="0 0 920 510" role="img" aria-labelledby="title description">
+  <title id="title">从 3SAT 到有向哈密顿路径的完整构造</title>
+  <desc id="description">两条变量链上下排列，起点 s、中转点 b 和终点 t 居中，三个子句顶点列在右侧。高亮的路径从 s 出发，第一行从右往左并经过 C₂，第二行从左往右并依次经过 C₁、C₃，最后到达 t。</desc>
+  <defs>
+    <marker id="muted-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#869bb2"/>
+    </marker>
+    <marker id="route-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#2b5d8d"/>
+    </marker>
+    <marker id="detour-arrow" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#ad621e"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "Segoe UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; text-anchor: middle; font-weight: 600; fill: #2b5d8d; }
+      .edge, .clause, .route, .detour { fill: none; stroke-linecap: round; }
+      .edge, .clause { stroke: #869bb2; stroke-width: 1.4; marker-end: url(#muted-arrow); }
+      .clause { stroke: #a2b2c3; }
+      .route { stroke: #2b5d8d; stroke-width: 2.8; marker-end: url(#route-arrow); }
+      .detour { stroke: #ad621e; stroke-width: 3; marker-end: url(#detour-arrow); }
+      .chain-node { fill: #fff; stroke: #628bb9; stroke-width: 1.7; }
+      .endpoint { fill: #eaf2fc; stroke: #628bb9; stroke-width: 2; }
+      .clause-node { fill: #fcf0d9; stroke: #c28e48; stroke-width: 2; }
+      .clause-label { fill: #8b531b; }
+      .row-label { font-size: 30px; }
+      .node-label { font-size: 22px; }
+    </style>
+    <g id="chain-nodes" class="chain-node">
+      <circle cx="124" cy="0" r="10"/>
+      <circle cx="174" cy="0" r="10"/>
+      <circle cx="224" cy="0" r="10"/>
+      <circle cx="274" cy="0" r="10"/>
+      <circle cx="324" cy="0" r="10"/>
+      <circle cx="374" cy="0" r="10"/>
+      <circle cx="424" cy="0" r="10"/>
+      <circle cx="474" cy="0" r="10"/>
+      <circle cx="524" cy="0" r="10"/>
+      <circle cx="574" cy="0" r="10"/>
+      <circle cx="624" cy="0" r="10"/>
+      <circle cx="674" cy="0" r="10"/>
+    </g>
+    <g id="pairs" fill="#eff5fc" stroke="#a4b8cd" stroke-width="1.4" stroke-dasharray="3 5">
+      <ellipse cx="249" cy="0" rx="42" ry="20"/>
+      <ellipse cx="399" cy="0" rx="42" ry="20"/>
+      <ellipse cx="549" cy="0" rx="42" ry="20"/>
+    </g>
+  </defs>
+
+  <rect width="920" height="510" rx="24" fill="#fff"/>
+  <rect x="18" y="18" width="884" height="474" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+  <use href="#pairs" y="157"/>
+  <use href="#pairs" y="355"/>
+
+  <g class="edge">
+    <path data-from="s" data-to="x1-0" d="M 384 64 L 136 151"/>
+    <path data-from="x1-11" data-to="b" d="M 663 162 L 416 250"/>
+    <path data-from="b" data-to="x2-11" d="M 415 262 L 660 350"/>
+    <path data-from="x2-0" data-to="t" d="M 135 360 L 382 448"/>
+    <path data-from="x1-0" data-to="x1-1" d="M 133 152 H 161"/>
+    <path data-from="x1-1" data-to="x1-2" d="M 183 152 H 211"/>
+    <path data-from="x1-2" data-to="x1-3" d="M 233 152 H 261"/>
+    <path data-from="x1-3" data-to="x1-4" d="M 283 152 H 311"/>
+    <path data-from="x1-4" data-to="x1-5" d="M 333 152 H 361"/>
+    <path data-from="x1-5" data-to="x1-6" d="M 383 152 H 411"/>
+    <path data-from="x1-6" data-to="x1-5" d="M 415 162 H 387"/>
+    <path data-from="x1-6" data-to="x1-7" d="M 433 152 H 461"/>
+    <path data-from="x1-7" data-to="x1-8" d="M 483 152 H 511"/>
+    <path data-from="x1-8" data-to="x1-9" d="M 533 152 H 561"/>
+    <path data-from="x1-9" data-to="x1-10" d="M 583 152 H 611"/>
+    <path data-from="x1-10" data-to="x1-11" d="M 633 152 H 661"/>
+    <path data-from="x2-1" data-to="x2-0" d="M 165 360 H 137"/>
+    <path data-from="x2-2" data-to="x2-1" d="M 215 360 H 187"/>
+    <path data-from="x2-2" data-to="x2-3" d="M 233 350 H 261"/>
+    <path data-from="x2-3" data-to="x2-2" d="M 265 360 H 237"/>
+    <path data-from="x2-4" data-to="x2-3" d="M 315 360 H 287"/>
+    <path data-from="x2-5" data-to="x2-4" d="M 365 360 H 337"/>
+    <path data-from="x2-6" data-to="x2-5" d="M 415 360 H 387"/>
+    <path data-from="x2-7" data-to="x2-6" d="M 465 360 H 437"/>
+    <path data-from="x2-8" data-to="x2-7" d="M 515 360 H 487"/>
+    <path data-from="x2-8" data-to="x2-9" d="M 533 350 H 561"/>
+    <path data-from="x2-9" data-to="x2-8" d="M 565 360 H 537"/>
+    <path data-from="x2-10" data-to="x2-9" d="M 615 360 H 587"/>
+    <path data-from="x2-11" data-to="x2-10" d="M 665 360 H 637"/>
+  </g>
+  <g class="clause">
+    <path data-from="x1-2" data-to="c1" d="M 224 147 C 327 68 595 62 807 75"/>
+    <path data-from="c1" data-to="x1-3" d="M 810 83 C 601 76 382 87 282 146"/>
+    <path data-from="x1-9" data-to="c3" d="M 580 165 C 642 236 748 347 811 419"/>
+    <path data-from="c3" data-to="x1-8" d="M 812 426 C 737 354 621 243 533 167"/>
+    <path data-from="x2-6" data-to="c2" d="M 432 347 C 533 311 692 265 809 255"/>
+    <path data-from="c2" data-to="x2-5" d="M 810 240 C 652 253 473 303 384 345"/>
+  </g>
+  <g class="route">
+    <path data-from="s" data-to="x1-11" d="M 414 64 L 661 151"/>
+    <path data-from="x1-0" data-to="b" d="M 135 162 L 381 250"/>
+    <path data-from="b" data-to="x2-0" d="M 383 262 L 138 350"/>
+    <path data-from="x2-11" data-to="t" d="M 663 360 L 417 448"/>
+    <path data-from="x1-1" data-to="x1-0" d="M 165 162 H 137"/>
+    <path data-from="x1-2" data-to="x1-1" d="M 215 162 H 187"/>
+    <path data-from="x1-3" data-to="x1-2" d="M 265 162 H 237"/>
+    <path data-from="x1-4" data-to="x1-3" d="M 315 162 H 287"/>
+    <path data-from="x1-5" data-to="x1-4" d="M 365 162 H 337"/>
+    <path data-from="x1-7" data-to="x1-6" d="M 465 162 H 437"/>
+    <path data-from="x1-8" data-to="x1-7" d="M 515 162 H 487"/>
+    <path data-from="x1-9" data-to="x1-8" d="M 565 162 H 537"/>
+    <path data-from="x1-10" data-to="x1-9" d="M 615 162 H 587"/>
+    <path data-from="x1-11" data-to="x1-10" d="M 665 162 H 637"/>
+    <path data-from="x2-0" data-to="x2-1" d="M 133 350 H 161"/>
+    <path data-from="x2-1" data-to="x2-2" d="M 183 350 H 211"/>
+    <path data-from="x2-3" data-to="x2-4" d="M 283 350 H 311"/>
+    <path data-from="x2-4" data-to="x2-5" d="M 333 350 H 361"/>
+    <path data-from="x2-5" data-to="x2-6" d="M 383 350 H 411"/>
+    <path data-from="x2-6" data-to="x2-7" d="M 433 350 H 461"/>
+    <path data-from="x2-7" data-to="x2-8" d="M 483 350 H 511"/>
+    <path data-from="x2-9" data-to="x2-10" d="M 583 350 H 611"/>
+    <path data-from="x2-10" data-to="x2-11" d="M 633 350 H 661"/>
+  </g>
+  <g class="detour">
+    <path data-from="x1-6" data-to="c2" d="M 429 166 C 533 198 674 224 808 246"/>
+    <path data-from="c2" data-to="x1-5" d="M 809 253 C 665 236 497 207 385 166"/>
+    <path data-from="x2-2" data-to="c1" d="M 232 347 C 341 286 694 326 813 92"/>
+    <path data-from="c1" data-to="x2-3" d="M 819 94 C 748 304 432 298 285 347"/>
+    <path data-from="x2-8" data-to="c3" d="M 533 361 C 607 387 723 412 807 425"/>
+    <path data-from="c3" data-to="x2-9" d="M 809 434 C 727 429 625 391 585 363"/>
+  </g>
+
+  <use href="#chain-nodes" y="157"/>
+  <use href="#chain-nodes" y="355"/>
+  <g class="endpoint">
+    <circle cx="399" cy="58" r="16"/>
+    <circle cx="399" cy="256" r="16"/>
+    <circle cx="399" cy="454" r="16"/>
+  </g>
+  <g class="clause-node">
+    <circle cx="824" cy="80" r="14"/>
+    <circle cx="824" cy="249" r="14"/>
+    <circle cx="824" cy="430" r="14"/>
+  </g>
+  <g class="node-label">
+    <text x="399" y="65">s</text><text x="399" y="263">b</text><text x="399" y="461">t</text>
+  </g>
+  <g class="row-label">
+    <text x="78" y="166">x₁</text><text x="78" y="364">x₂</text>
+    <text class="clause-label" x="864" y="89">C₁</text>
+    <text class="clause-label" x="864" y="258">C₂</text>
+    <text class="clause-label" x="864" y="439">C₃</text>
+  </g>
+</svg>

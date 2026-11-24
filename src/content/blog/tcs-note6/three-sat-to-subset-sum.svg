@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="712" height="670" viewBox="0 0 712 670" role="img" aria-labelledby="title description">
+  <title id="title">从 3SAT 到子集和的十进制位表</title>
+  <desc id="description">五列依次是 x₁、x₂、C₁、C₂、C₃。蓝色行 z₁、y₂、g₁、h₁、g₂、h₂、g₃ 分别表示 10011、01101、00100、00100、00010、00010、00001，相加得到目标值 11333。</desc>
+  <defs>
+    <style>
+      text { font-family: Inter, "Segoe UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; font-size: 31px; text-anchor: middle; fill: #45586e; }
+      .heading, .selected, .target { fill: #2b5d8d; font-weight: 600; }
+      .grid { fill: none; stroke: #c4d3e3; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect width="712" height="670" rx="24" fill="#ffffff"/>
+  <rect x="18" y="18" width="676" height="634" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+  <rect x="48" y="42" width="616" height="582" fill="#ffffff"/>
+  <path d="M 48 42 H 664 V 130 H 48 Z M 48 570 H 664 V 624 H 48 Z" fill="#eaf2fc"/>
+  <path d="M 48 174 H 664 V 262 H 48 Z M 48 306 H 664 V 526 H 48 Z" fill="#dbeaf9"/>
+  <g class="grid">
+    <rect x="48" y="42" width="616" height="582" stroke="#9eafc2" stroke-width="2"/>
+    <path d="M 154 42 V 624 M 358 42 V 624 M 48 130 H 664 M 48 570 H 664" stroke="#9eafc2" stroke-width="2"/>
+    <path d="M 256 82 V 624 M 460 82 V 624 M 562 82 V 624 M 154 82 H 664"/>
+    <path d="M 48 174 H 664 M 48 218 H 664 M 48 262 H 664 M 48 306 H 664 M 48 350 H 664 M 48 394 H 664 M 48 438 H 664 M 48 482 H 664 M 48 526 H 664"/>
+  </g>
+  <g class="heading">
+    <text x="256" y="73" style="font-size: 25px">变量列</text>
+    <text x="511" y="73" style="font-size: 25px">子句列</text>
+    <text x="205" y="119">x₁</text><text x="307" y="119">x₂</text>
+    <text x="409" y="119">C₁</text><text x="511" y="119">C₂</text><text x="613" y="119">C₃</text>
+  </g>
+  <g>
+    <text y="164"><tspan x="101">y₁</tspan><tspan x="205">1</tspan><tspan x="307">0</tspan><tspan x="409">1</tspan><tspan x="511">0</tspan><tspan x="613">0</tspan></text>
+    <text class="selected" y="208"><tspan x="101">z₁</tspan><tspan x="205">1</tspan><tspan x="307">0</tspan><tspan x="409">0</tspan><tspan x="511">1</tspan><tspan x="613">1</tspan></text>
+    <text class="selected" y="252"><tspan x="101">y₂</tspan><tspan x="205">0</tspan><tspan x="307">1</tspan><tspan x="409">1</tspan><tspan x="511">0</tspan><tspan x="613">1</tspan></text>
+    <text y="296"><tspan x="101">z₂</tspan><tspan x="205">0</tspan><tspan x="307">1</tspan><tspan x="409">0</tspan><tspan x="511">1</tspan><tspan x="613">0</tspan></text>
+    <text class="selected" y="340"><tspan x="101">g₁</tspan><tspan x="205">0</tspan><tspan x="307">0</tspan><tspan x="409">1</tspan><tspan x="511">0</tspan><tspan x="613">0</tspan></text>
+    <text class="selected" y="384"><tspan x="101">h₁</tspan><tspan x="205">0</tspan><tspan x="307">0</tspan><tspan x="409">1</tspan><tspan x="511">0</tspan><tspan x="613">0</tspan></text>
+    <text class="selected" y="428"><tspan x="101">g₂</tspan><tspan x="205">0</tspan><tspan x="307">0</tspan><tspan x="409">0</tspan><tspan x="511">1</tspan><tspan x="613">0</tspan></text>
+    <text class="selected" y="472"><tspan x="101">h₂</tspan><tspan x="205">0</tspan><tspan x="307">0</tspan><tspan x="409">0</tspan><tspan x="511">1</tspan><tspan x="613">0</tspan></text>
+    <text class="selected" y="516"><tspan x="101">g₃</tspan><tspan x="205">0</tspan><tspan x="307">0</tspan><tspan x="409">0</tspan><tspan x="511">0</tspan><tspan x="613">1</tspan></text>
+    <text y="560"><tspan x="101">h₃</tspan><tspan x="205">0</tspan><tspan x="307">0</tspan><tspan x="409">0</tspan><tspan x="511">0</tspan><tspan x="613">1</tspan></text>
+    <text class="target" y="608"><tspan x="101">t</tspan><tspan x="205">1</tspan><tspan x="307">1</tspan><tspan x="409">3</tspan><tspan x="511">3</tspan><tspan x="613">3</tspan></text>
+  </g>
+</svg>

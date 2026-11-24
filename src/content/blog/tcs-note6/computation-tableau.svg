@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title description">
+  <title id="title">图灵机计算表</title>
+  <desc id="description">计算表有 n 的 k 次方行和列，每行记录一个格局，两端以 # 标记。初始格局依次写入状态 q₀、输入 w₁ 至 wₙ 和空白符 B。橙色区域标出相邻两行、连续三列组成的 (i,j)-窗口，蓝色格是窗口上排的中央单元。右下方另以橙色标出一个单元格 cell[i,j] 的示例。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" viewBox="0 0 12 12" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 11 6 L 1 11 Z" fill="#71859b"/>
+    </marker>
+    <style>
+      .sans { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+      .symbol, .dimension, .notation { font-family: Inter, "Segoe UI", Arial, sans-serif; font-weight: 600; }
+      .symbol { fill: #2b5d8d; font-size: 36px; text-anchor: middle; }
+      .sub, .sup { font-size: 0.63em; }
+      .label { fill: #45586e; font-size: 34px; }
+      .dimension { text-anchor: middle; }
+      .grid { fill: none; stroke: #bcccdc; stroke-width: 1.6; }
+      .arrow { fill: none; stroke: #71859b; stroke-width: 2; stroke-linecap: round; }
+    </style>
+    <g id="boundary-symbols" class="symbol">
+      <text x="139" y="0">#</text>
+      <text x="821" y="0">#</text>
+    </g>
+  </defs>
+
+  <rect width="1200" height="720" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="1152" height="672" rx="20" fill="#f8fafc" stroke="#d9e1ea" stroke-width="2"/>
+
+  <rect x="108" y="60" width="744" height="558" fill="#ffffff"/>
+  <rect x="108" y="60" width="744" height="62" fill="#eaf2fc"/>
+  <path d="M 108 122 H 170 V 618 H 108 Z M 790 122 H 852 V 618 H 790 Z" fill="#eff5fc"/>
+  <rect x="418" y="308" width="186" height="124" fill="#f8dfad"/>
+  <rect x="480" y="308" width="62" height="62" fill="#b8d8f5"/>
+  <rect x="666" y="494" width="62" height="62" fill="#f8dfad"/>
+
+  <g class="grid">
+    <rect x="108" y="60" width="744" height="558" stroke="#9eafc2" stroke-width="2"/>
+    <path d="M 108 122 H 852 M 108 184 H 852 M 108 246 H 852 M 108 308 H 852 M 108 370 H 852 M 108 432 H 852 M 108 494 H 852 M 108 556 H 852"/>
+    <path d="M 170 60 V 618 M 232 60 V 618 M 294 60 V 618 M 356 60 V 618 M 418 60 V 618 M 480 60 V 618 M 542 60 V 618 M 604 60 V 618 M 666 60 V 618 M 728 60 V 618 M 790 60 V 618"/>
+  </g>
+  <path d="M 480 308 V 432 M 542 308 V 432 M 418 370 H 604" fill="none" stroke="#c5a46e" stroke-width="1.6"/>
+  <rect x="418" y="308" width="186" height="124" fill="none" stroke="#b2863d" stroke-width="2.2"/>
+  <rect x="480" y="308" width="62" height="62" fill="none" stroke="#628bb9" stroke-width="2.2"/>
+  <rect x="666" y="494" width="62" height="62" fill="none" stroke="#b2863d" stroke-width="2.2"/>
+
+  <use href="#boundary-symbols" y="103"/>
+  <use href="#boundary-symbols" y="165"/>
+  <use href="#boundary-symbols" y="227"/>
+  <use href="#boundary-symbols" y="289"/>
+  <use href="#boundary-symbols" y="351"/>
+  <use href="#boundary-symbols" y="413"/>
+  <use href="#boundary-symbols" y="475"/>
+  <use href="#boundary-symbols" y="537"/>
+  <use href="#boundary-symbols" y="599"/>
+  <g class="symbol">
+    <text x="201" y="102">q<tspan class="sub" dy="8">0</tspan></text>
+    <text x="263" y="102">w<tspan class="sub" dy="8">1</tspan></text>
+    <text x="325" y="102">w<tspan class="sub" dy="8">2</tspan></text>
+    <text x="387" y="102">⋯</text>
+    <text x="449" y="102">⋯</text>
+    <text x="511" y="102">w<tspan class="sub" dy="8">n</tspan></text>
+    <text x="573" y="103">B</text>
+    <text x="635" y="102">⋯</text>
+    <text x="697" y="102">⋯</text>
+    <text x="759" y="103">B</text>
+  </g>
+
+  <g class="arrow" marker-end="url(#arrow)">
+    <path d="M 58 310 V 60"/>
+    <path d="M 58 364 V 618"/>
+    <path d="M 441 657 H 108"/>
+    <path d="M 519 657 H 852"/>
+    <path d="M 900 251 C 780 225 711 235 607 340"/>
+    <path d="M 900 481 C 821 482 763 486 731 523"/>
+  </g>
+  <g class="label dimension">
+    <text x="58" y="350">n<tspan class="sup" dy="-12">k</tspan></text>
+    <text x="480" y="669">n<tspan class="sup" dy="-12">k</tspan></text>
+  </g>
+  <g class="sans label">
+    <text x="916" y="103">初始格局</text>
+    <text x="916" y="165">第 2 个格局</text>
+    <text x="916" y="263"><tspan class="notation" fill="#2b5d8d">(i,j)</tspan>-窗口</text>
+    <text x="916" y="493">单元 <tspan class="notation" fill="#8b631d">cell[i,j]</tspan></text>
+    <text x="916" y="599">第 <tspan class="notation">n<tspan class="sup" dy="-12">k</tspan></tspan><tspan dy="12"> 个格局</tspan></text>
+  </g>
+</svg>
